@@ -141,7 +141,7 @@ function callCloudFunction(name, data = {}) {
                 // 根据错误类型提供更详细的错误信息
                 if (err.errMsg) {
                     if (err.errMsg.includes('not found') || err.errMsg.includes('不存在')) {
-                        errorMessage = `云函数 ${name} 不存在，请检查后端正式源是否已在 农鲜通后台管理平台/uniCloud-aliyun 上传部署`;
+                        errorMessage = `云函数 ${name} 不存在，请检查后端正式源是否已在 云链农商后台管理平台/uniCloud-aliyun 上传部署`;
                     } else if (err.errMsg.includes('network')) {
                         errorMessage = '网络连接失败，请检查网络';
                     } else if (err.errMsg.includes('timeout')) {
