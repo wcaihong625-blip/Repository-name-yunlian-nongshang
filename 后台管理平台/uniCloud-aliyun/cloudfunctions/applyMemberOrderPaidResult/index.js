@@ -3,7 +3,7 @@
  * 支付成功统一落账入口（会员订单）。供管理端/内部验签回调调用；微信小程序支付成功由 memberWxpayNotify 等走同一套 nxt-member-order-apply-paid。
  * 鉴权：后台管理员，或请求体 internal_secret 与 uni-config-center/nxt-server/config.json 中 pay_callback.internal_secret 一致。
  */
-const { getConfig, requireAdmin, verifyToken } = require('nxt-auth');
+const { getConfig, requireAdmin } = require('nxt-auth');
 const { applyMemberOrderPaidCore, safeString, findPaidUniPayOrder } = require('nxt-member-order-apply-paid');
 
 function canUseInternalSecret(event) {
@@ -17,15 +17,10 @@ exports.main = async (event, context) => {
   const db = uniCloud.database();
 
   try {
-    let callerUserId = '';
     if (!canUseInternalSecret(event)) {
       const admin = await requireAdmin(event, context);
       if (!admin.success) {
-        const login = await verifyToken(event, context);
-        if (!login.success || !login.userId) {
-          return { code: 401, message: login.error || '无权限', data: null };
-        }
-        callerUserId = String(login.userId);
+        return { code: 403, message: admin.error || '无权限', data: null };
       }
     }
 
@@ -44,15 +39,6 @@ exports.main = async (event, context) => {
       );
       if (!orderId) {
         return { code: 404, message: '未找到可补单的已支付订单', data: null };
-      }
-    }
-
-    if (callerUserId) {
-      const check = await db.collection('member_order').doc(orderId).get();
-      const checkOrder = check.data && check.data[0];
-      if (!checkOrder) return { code: 404, message: '订单不存在', data: null };
-      if (String(checkOrder.user_id || '') !== callerUserId) {
-        return { code: 403, message: '无权操作该订单', data: null };
       }
     }
 
