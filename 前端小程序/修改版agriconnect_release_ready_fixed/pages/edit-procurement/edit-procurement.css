@@ -1,0 +1,37 @@
+/* 编辑采购：在 publish-info.css 基础上仅补充下架按钮与按钮区 */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 24rpx;
+}
+
+.offline-btn {
+    width: 100%;
+    height: 88rpx;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: #fef3c7;
+    color: #f59e0b;
+    font-weight: bold;
+    font-size: 32rpx;
+    border-radius: 24rpx;
+    border: 2rpx solid #fde68a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.offline-btn::after {
+    border: none;
+}
+
+.submit-btn::after {
+    border: none;
+}
+
+.offline-btn:active {
+    transform: scale(0.98);
+    background: #fde68a;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "nxt-order-exception",
+  "version": "1.0.0",
+  "description": "会员订单对账异常条件（与列表/export 口径一致）",
+  "main": "index.js"
+}

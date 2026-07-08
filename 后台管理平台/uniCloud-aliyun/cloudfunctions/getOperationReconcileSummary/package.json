@@ -1,0 +1,10 @@
+{
+  "name": "getOperationReconcileSummary",
+  "version": "1.0.0",
+  "description": "运营对账总览：按月与可选业务员汇总摘要与异常计数",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-commission-month": "file:../common/nxt-commission-month"
+  }
+}

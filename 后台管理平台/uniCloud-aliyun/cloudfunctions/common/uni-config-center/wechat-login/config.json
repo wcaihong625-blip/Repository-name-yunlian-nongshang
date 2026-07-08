@@ -1,0 +1,38 @@
+{
+  "development": {
+    "weixin": {
+      "appId": "wxd99b4bc1e6c61afd",
+      "appSecret": "d8177a40ef59d257c496e7dc61a25511"
+    },
+    "mp-weixin": {
+      "oauth": {
+        "weixin": {
+          "appid": "wxd99b4bc1e6c61afd",
+          "appsecret": "d8177a40ef59d257c496e7dc61a25511"
+        }
+      }
+    },
+    "jwt": {
+      "secret": "NXT_2026_VERY_STRONG_JWT_SECRET_STRING_XYZ987",
+      "expiresIn": "7d"
+    }
+  },
+  "production": {
+    "weixin": {
+      "appId": "wxd99b4bc1e6c61afd",
+      "appSecret": "d8177a40ef59d257c496e7dc61a25511"
+    },
+    "mp-weixin": {
+      "oauth": {
+        "weixin": {
+          "appid": "wxd99b4bc1e6c61afd",
+          "appsecret": "d8177a40ef59d257c496e7dc61a25511"
+        }
+      }
+    },
+    "jwt": {
+      "secret": "NXT_2026_VERY_STRONG_JWT_SECRET_STRING_XYZ987",
+      "expiresIn": "7d"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "getMarketTrends",
+  "version": "1.0.0",
+  "description": "获取市场行情数据",
+  "main": "index.js",
+  "dependencies": {}
+}

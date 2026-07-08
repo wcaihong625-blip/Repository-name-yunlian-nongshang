@@ -1,0 +1,93 @@
+{
+  "bsonType": "object",
+  "required": ["sales_code", "sales_name", "mobile", "status"],
+  "permission": {
+    "read": "'admin' in auth.role",
+    "create": "'admin' in auth.role",
+    "update": "'admin' in auth.role",
+    "delete": "'admin' in auth.role"
+  },
+  "properties": {
+    "_id": {
+      "description": "ID",
+      "bsonType": "string"
+    },
+    "sales_code": {
+      "bsonType": "string",
+      "title": "业务员编号",
+      "description": "运营侧业务主键，唯一；新建默认自动生成 YW10001 递增，与库内 _id 分离"
+    },
+    "sales_name": {
+      "bsonType": "string",
+      "title": "业务员姓名"
+    },
+    "mobile": {
+      "bsonType": "string",
+      "title": "手机号",
+      "pattern": "^1[3-9]\\d{9}$"
+    },
+    "wechat_no": {
+      "bsonType": "string",
+      "title": "微信号"
+    },
+    "region": {
+      "bsonType": "string",
+      "title": "负责区域"
+    },
+    "status": {
+      "bsonType": "int",
+      "title": "状态",
+      "description": "0-停用 1-正常",
+      "defaultValue": 1,
+      "enum": [
+        {"value": 0, "text": "停用"},
+        {"value": 1, "text": "正常"}
+      ]
+    },
+    "base_commission_rate_first": {
+      "bsonType": "double",
+      "title": "首开提成比例",
+      "description": "0-1之间的小数",
+      "defaultValue": 0
+    },
+    "base_commission_rate_renew": {
+      "bsonType": "double",
+      "title": "续费提成比例",
+      "description": "0-1之间的小数",
+      "defaultValue": 0
+    },
+    "manager_id": {
+      "bsonType": "string",
+      "title": "上级主管ID"
+    },
+    "remark": {
+      "bsonType": "string",
+      "title": "备注"
+    },
+    "bind_user_id": {
+      "bsonType": "string",
+      "title": "绑定用户ID",
+      "description": "小程序登录用户的 uni-id-users._id"
+    },
+    "bind_time": {
+      "bsonType": "timestamp",
+      "title": "绑定时间"
+    },
+    "created_at": {
+      "bsonType": "timestamp",
+      "title": "创建时间",
+      "description": "创建时间",
+      "forceDefaultValue": {
+        "$env": "now"
+      }
+    },
+    "updated_at": {
+      "bsonType": "timestamp",
+      "title": "更新时间",
+      "description": "更新时间",
+      "forceDefaultValue": {
+        "$env": "now"
+      }
+    }
+  }
+}

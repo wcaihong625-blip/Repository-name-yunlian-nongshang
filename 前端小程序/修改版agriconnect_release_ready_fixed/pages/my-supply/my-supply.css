@@ -1,0 +1,456 @@
+/* pages/my-supply/my-supply.wxss */
+.my-supply-page {
+    height: 100vh;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header-section {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: #ffffff;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 数据统计栏 */
+.stats-bar {
+    display: flex;
+    align-items: center;
+    padding: 24rpx 16rpx;
+    gap: 12rpx;
+    border-bottom: 2rpx solid #f3f4f6;
+}
+
+.search-row {
+    padding: 12rpx 16rpx 8rpx;
+}
+
+.search-input {
+    height: 68rpx;
+    border-radius: 9999rpx;
+    background: #f8fafc;
+    border: 1rpx solid #e2e8f0;
+    padding: 0 24rpx;
+    font-size: 26rpx;
+    color: #1f2937;
+}
+
+.category-scroll {
+    width: 100%;
+    white-space: nowrap;
+    border-bottom: 2rpx solid #f3f4f6;
+}
+
+.category-chip-list {
+    display: inline-flex;
+    align-items: center;
+    gap: 12rpx;
+    padding: 12rpx 16rpx 18rpx;
+}
+
+.category-chip {
+    padding: 10rpx 22rpx;
+    border-radius: 9999rpx;
+    font-size: 24rpx;
+    color: #64748b;
+    background: #f8fafc;
+    border: 1rpx solid #e2e8f0;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.category-chip.active {
+    color: #166534;
+    background: #dcfce7;
+    border-color: #86efac;
+}
+
+.stat-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20rpx 8rpx;
+    border-radius: 16rpx;
+    background: #f9fafb;
+    transition: all 0.2s;
+    min-width: 0;
+}
+
+.stat-item.active {
+    background: #dcfce7;
+    border: 2rpx solid #16a34a;
+}
+
+.stat-value {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 6rpx;
+}
+
+.stat-item.active .stat-value {
+    color: #16a34a;
+}
+
+.stat-label {
+    font-size: 22rpx;
+    color: #6b7280;
+    white-space: nowrap;
+}
+
+.stat-item.active .stat-label {
+    color: #16a34a;
+    font-weight: 500;
+}
+
+.content-section {
+    flex: 1;
+    height: 0;
+}
+
+/* 空状态 */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 200rpx 32rpx;
+    color: #9ca3af;
+}
+
+.empty-icon {
+    font-size: 120rpx;
+    margin-bottom: 32rpx;
+}
+
+.empty-text {
+    font-size: 32rpx;
+    margin-bottom: 48rpx;
+    color: #6b7280;
+}
+
+.publish-btn {
+    width: 240rpx;
+    height: 80rpx;
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 28rpx;
+    border-radius: 40rpx;
+    border: none;
+    box-shadow: 0 8rpx 16rpx rgba(22, 163, 74, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.publish-btn:active {
+    transform: scale(0.95);
+}
+
+/* 供应列表 */
+.supply-list {
+    padding: 32rpx;
+}
+
+.supply-card {
+    background: #ffffff;
+    border-radius: 24rpx;
+    padding: 32rpx;
+    margin-bottom: 32rpx;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+    border: 2rpx solid #f3f4f6;
+    position: relative;
+}
+
+.card-title-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16rpx;
+    width: 100%;
+    min-width: 0;
+}
+
+.card-title-meta {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 8rpx;
+    max-width: 45%;
+    margin-top: 2rpx;
+}
+
+.promo-badge-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8rpx;
+}
+
+.meta-badge {
+    font-size: 20rpx;
+    font-weight: 800;
+    line-height: 1.2;
+    padding: 6rpx 12rpx;
+    border-radius: 8rpx;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.meta-badge-boost {
+    color: #ffffff;
+    background: #ef4444;
+    box-shadow: 0 2rpx 8rpx rgba(239, 68, 68, 0.35);
+}
+
+.meta-badge-top {
+    color: #713f12;
+    background: #fde047;
+    box-shadow: 0 2rpx 8rpx rgba(234, 179, 8, 0.25);
+}
+
+.status-badge {
+    padding: 8rpx 16rpx;
+    border-radius: 8rpx;
+    font-size: 24rpx;
+    font-weight: bold;
+    border: 2rpx solid;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.card-content {
+    display: flex;
+    gap: 24rpx;
+    margin-bottom: 24rpx;
+}
+
+.card-image-wrapper {
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 16rpx;
+    overflow: hidden;
+    background: #f3f4f6;
+    flex-shrink: 0;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+}
+
+.card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16rpx;
+    min-width: 0; /* 防止flex布局溢出 */
+}
+
+.card-title {
+    flex: 1;
+    min-width: 0;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #1f2937;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word; /* 允许长单词换行 */
+    padding-right: 8rpx;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12rpx;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    font-size: 26rpx;
+}
+
+.detail-label {
+    color: #6b7280;
+    min-width: 120rpx;
+}
+
+.detail-value {
+    color: #374151;
+    flex: 1;
+}
+
+.detail-value.price {
+    color: #ef4444;
+    font-weight: bold;
+    font-size: 28rpx;
+}
+
+/* 轻量经营数据条：左侧曝光小卡 + 右侧弱化时间 */
+.card-metrics-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 20rpx;
+    padding: 16rpx 0 8rpx;
+    margin: 0 0 4rpx;
+}
+
+/* 小数据卡：白底衬在浅绿上 + 左侧色条，区别于普通标签 */
+.view-data-card {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    max-width: 62%;
+    border-radius: 16rpx;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f0fdf4 0%, #ecfdf5 100%);
+    border: 1rpx solid rgba(22, 163, 74, 0.22);
+    box-shadow: 0 2rpx 12rpx rgba(15, 118, 110, 0.06), 0 0 0 1rpx rgba(255, 255, 255, 0.6) inset;
+}
+
+.view-data-card-accent {
+    width: 8rpx;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #22c55e 0%, #16a34a 100%);
+}
+
+.view-data-card-inner {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18rpx 22rpx 18rpx 18rpx;
+    gap: 20rpx;
+}
+
+.view-data-meta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10rpx;
+    flex-shrink: 0;
+}
+
+.view-data-caption {
+    font-size: 22rpx;
+    color: #4d7c59;
+    font-weight: 700;
+    letter-spacing: 0.5rpx;
+}
+
+.view-data-value {
+    font-size: 40rpx;
+    font-weight: 900;
+    color: #052e16;
+    line-height: 1;
+    letter-spacing: -0.5rpx;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    flex: 1;
+    min-width: 0;
+}
+
+.metrics-time-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+    padding: 8rpx 0 4rpx;
+}
+
+.metrics-time {
+    font-size: 24rpx;
+    color: #9ca3af;
+    font-weight: 400;
+    line-height: 1.35;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16rpx;
+    padding-top: 24rpx;
+    border-top: 2rpx solid #f3f4f6;
+}
+
+.action-btn {
+    flex: 1 1 40%;
+    min-width: 140rpx;
+    height: 64rpx;
+    border-radius: 16rpx;
+    font-size: 26rpx;
+    font-weight: 500;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-btn {
+    background: #e0e7ff;
+    color: #6366f1;
+}
+
+.promote-btn {
+    background: #fef9c3;
+    color: #a16207;
+}
+
+.effect-btn {
+    background: #ecfdf5;
+    color: #15803d;
+    border: 2rpx solid #bbf7d0;
+}
+
+.online-btn {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.offline-btn {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.delete-btn {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+}
+
+/* 加载更多 */
+.loading-more,
+.no-more {
+    text-align: center;
+    padding: 32rpx;
+    font-size: 26rpx;
+    color: #9ca3af;
+}

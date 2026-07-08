@@ -1,0 +1,14 @@
+{
+    "libVersion": "3.11.2",
+    "projectname": "agriconnect---%E5%86%9C%E9%B2%9C%E9%80%9A5",
+    "setting": {
+        "urlCheck": false,
+        "coverView": true,
+        "lazyloadPlaceholderEnable": false,
+        "skylineRenderEnable": false,
+        "preloadBackgroundData": false,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "compileHotReLoad": true
+    }
+}

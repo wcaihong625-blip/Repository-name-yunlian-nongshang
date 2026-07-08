@@ -1,0 +1,29 @@
+[
+  {
+    "IndexName": "order_no_unique",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [{ "Name": "order_no", "Direction": "1" }],
+      "MgoIsUnique": true
+    }
+  },
+  {
+    "IndexName": "user_created",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [
+        { "Name": "user_id", "Direction": "1" },
+        { "Name": "created_at", "Direction": "-1" }
+      ],
+      "MgoIsUnique": false
+    }
+  },
+  {
+    "IndexName": "status_pay",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [
+        { "Name": "status", "Direction": "1" },
+        { "Name": "pay_status", "Direction": "1" }
+      ],
+      "MgoIsUnique": false
+    }
+  }
+]

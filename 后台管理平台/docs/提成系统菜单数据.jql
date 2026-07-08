@@ -1,0 +1,53 @@
+// 添加主菜单
+db.collection('opendb-admin-menus').add({
+  menu_id: 'sales_system',
+  name: '提成统计系统',
+  icon: 'uni-icons-vip',
+  url: '',
+  sort: 4000,
+  parent_id: '',
+  permission: [],
+  enable: true,
+  create_date: Date.now(),
+  _id: 'sales_system'
+})
+
+// 添加子菜单
+db.collection('opendb-admin-menus').add([
+  {
+    menu_id: 'sales_staff_manage',
+    name: '业务员管理',
+    url: '/pages/sales_staff/list',
+    sort: 4010,
+    parent_id: 'sales_system',
+    enable: true,
+    create_date: Date.now()
+  },
+  {
+    menu_id: 'sales_channel_manage',
+    name: '渠道管理',
+    url: '/pages/sales_channel/list',
+    sort: 4020,
+    parent_id: 'sales_system',
+    enable: true,
+    create_date: Date.now()
+  },
+  {
+    menu_id: 'customer_profile_manage',
+    name: '客户归属管理',
+    url: '/pages/customer_profile/list',
+    sort: 4030,
+    parent_id: 'sales_system',
+    enable: true,
+    create_date: Date.now()
+  },
+  {
+    menu_id: 'member_order_manage',
+    name: '会员订单管理',
+    url: '/pages/member_order/list',
+    sort: 4040,
+    parent_id: 'sales_system',
+    enable: true,
+    create_date: Date.now()
+  }
+])

@@ -1,0 +1,92 @@
+{
+  "bsonType": "object",
+  "required": ["sales_id", "settle_month"],
+  "permission": {
+    "read": true,
+    "create": true,
+    "update": true,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "主键",
+      "bsonType": "string"
+    },
+    "sales_id": {
+      "description": "业务员ID",
+      "bsonType": "string"
+    },
+    "sales_name": {
+      "description": "业务员姓名",
+      "bsonType": "string"
+    },
+    "settle_month": {
+      "description": "结算月份 (YYYY-MM)",
+      "bsonType": "string"
+    },
+    "order_count": {
+      "description": "总订单数",
+      "bsonType": "int"
+    },
+    "first_open_count": {
+      "description": "首开订单数",
+      "bsonType": "int"
+    },
+    "renewal_count": {
+      "description": "续费订单数",
+      "bsonType": "int"
+    },
+    "first_open_amount": {
+      "description": "首开订单总金额",
+      "bsonType": "double"
+    },
+    "renewal_amount": {
+      "description": "续费订单总金额",
+      "bsonType": "double"
+    },
+    "first_open_commission": {
+      "description": "首开提成金额",
+      "bsonType": "double"
+    },
+    "renewal_commission": {
+      "description": "续费提成金额",
+      "bsonType": "double"
+    },
+    "commission_total": {
+      "description": "提成总额",
+      "bsonType": "double"
+    },
+    "commission_paid": {
+      "description": "已结算提成",
+      "bsonType": "double"
+    },
+    "commission_unpaid": {
+      "description": "未结算提成",
+      "bsonType": "double"
+    },
+    "settle_status": {
+      "description": "结算状态 0=待结算 1=已结算 2=部分结算",
+      "bsonType": "int"
+    },
+    "order_ids": {
+      "description": "包含的订单ID列表",
+      "bsonType": "array"
+    },
+    "remark": {
+      "description": "备注",
+      "bsonType": "string"
+    },
+    "settled_at": {
+      "description": "确认结算完成时间",
+      "bsonType": "timestamp"
+    },
+    "created_at": {
+      "description": "创建时间",
+      "bsonType": "timestamp"
+    },
+    "updated_at": {
+      "description": "更新时间",
+      "bsonType": "timestamp"
+    }
+  }
+}

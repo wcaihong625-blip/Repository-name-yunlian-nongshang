@@ -1,0 +1,10 @@
+{
+  "name": "resolveSalesStaffByInput",
+  "version": "1.0.0",
+  "description": "按业务员编号（或兼容 24 位内部_id）解析业务员",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-sales-staff": "file:../common/nxt-sales-staff"
+  }
+}

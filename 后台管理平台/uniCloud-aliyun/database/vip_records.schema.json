@@ -1,0 +1,73 @@
+{
+  "bsonType": "object",
+  "required": [
+    "user_id",
+    "days",
+    "source_type",
+    "before_expire_time",
+    "after_expire_time",
+    "created_at"
+  ],
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "description": "用户ID",
+      "foreignKey": "uni-id-users._id"
+    },
+    "days": {
+      "bsonType": "int",
+      "description": "本次增加的会员天数"
+    },
+    "source_type": {
+      "bsonType": "string",
+      "description": "会员来源：redeem_code、wechat_pay、admin_gift、manual",
+      "enum": [
+        "redeem_code",
+        "wechat_pay",
+        "admin_gift",
+        "manual"
+      ]
+    },
+    "source_id": {
+      "bsonType": "string",
+      "description": "来源ID，例如优惠码ID、订单ID"
+    },
+    "before_expire_time": {
+      "bsonType": "timestamp",
+      "description": "变更前到期时间"
+    },
+    "after_expire_time": {
+      "bsonType": "timestamp",
+      "description": "变更后到期时间"
+    },
+    "remark": {
+      "bsonType": "string",
+      "description": "备注",
+      "trim": "both"
+    },
+    "created_at": {
+      "bsonType": "timestamp",
+      "description": "创建时间"
+    }
+  },
+  "indexes": {
+    "user_id_idx": {
+      "fields": {
+        "user_id": 1
+      }
+    },
+    "source_type_idx": {
+      "fields": {
+        "source_type": 1
+      }
+    },
+    "created_at_idx": {
+      "fields": {
+        "created_at": -1
+      }
+    }
+  }
+}

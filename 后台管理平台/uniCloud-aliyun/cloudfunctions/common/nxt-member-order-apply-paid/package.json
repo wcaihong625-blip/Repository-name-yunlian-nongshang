@@ -1,0 +1,9 @@
+{
+  "name": "nxt-member-order-apply-paid",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-member-coupon": "file:../nxt-member-coupon",
+    "nxt-membership-promotion-config": "file:../nxt-membership-promotion-config"
+  }
+}

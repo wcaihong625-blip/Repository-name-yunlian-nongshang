@@ -1,0 +1,53 @@
+// 若未重新执行 opendb-admin-menus.init_data.json，可在 uniCloud Web 控制台「数据库」→ JQL 中执行以下语句补充左侧菜单（注意与 init_data 重复时勿重复添加）
+
+db.collection('opendb-admin-menus').add({
+  menu_id: 'reputation_report_root',
+  name: '信誉与举报管理',
+  icon: 'admin-icons-safety',
+  url: '',
+  sort: 4200,
+  parent_id: '',
+  permission: [],
+  enable: true,
+  create_date: Date.now(),
+  _id: 'reputation_report_root'
+})
+
+db.collection('opendb-admin-menus').add([
+  {
+    menu_id: 'user_report_list',
+    name: '举报处理',
+    icon: '',
+    url: '/pages/user_report/list',
+    sort: 4210,
+    parent_id: 'reputation_report_root',
+    permission: [],
+    enable: true,
+    create_date: Date.now(),
+    _id: 'user_report_list'
+  },
+  {
+    menu_id: 'user_reputation_list',
+    name: '用户信誉总览',
+    icon: '',
+    url: '/pages/user_reputation/list',
+    sort: 4220,
+    parent_id: 'reputation_report_root',
+    permission: [],
+    enable: true,
+    create_date: Date.now(),
+    _id: 'user_reputation_list'
+  },
+  {
+    menu_id: 'user_reputation_reviews_list',
+    name: '用户评价管理',
+    icon: '',
+    url: '/pages/user_reputation_reviews/list',
+    sort: 4230,
+    parent_id: 'reputation_report_root',
+    permission: [],
+    enable: true,
+    create_date: Date.now(),
+    _id: 'user_reputation_reviews_list'
+  }
+])

@@ -1,0 +1,511 @@
+/* pages/customer-phonebook/customer-phonebook.wxss */
+.phonebook-page {
+    min-height: 100vh;
+    background: #f5f5f5;
+    padding-bottom: 40rpx;
+}
+
+/* 头部区域 */
+.header-section {
+    background: #ffffff;
+    padding: 24rpx 32rpx;
+    display: flex;
+    align-items: center;
+    gap: 16rpx;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* 搜索栏 */
+.search-bar {
+    flex: 1;
+    background: #f5f5f5;
+    border-radius: 48rpx;
+    padding: 16rpx 24rpx;
+    display: flex;
+    align-items: center;
+    gap: 12rpx;
+}
+
+.search-icon {
+    width: 32rpx;
+    height: 32rpx;
+    flex-shrink: 0;
+}
+
+.search-input {
+    flex: 1;
+    font-size: 28rpx;
+    color: #374151;
+}
+
+.clear-icon {
+    width: 32rpx;
+    height: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d1d5db;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 20rpx;
+}
+
+/* 添加按钮 */
+.add-btn {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+    background: #16a34a;
+    color: #ffffff;
+    padding: 16rpx 24rpx;
+    border-radius: 48rpx;
+    font-size: 28rpx;
+    font-weight: 500;
+}
+
+.add-icon {
+    font-size: 28rpx;
+}
+
+.add-text {
+    font-size: 28rpx;
+}
+
+/* 联系人列表 */
+.contacts-list {
+    height: calc(100vh - 200rpx);
+    padding: 0 24rpx;
+    box-sizing: border-box;
+}
+
+.contacts-container {
+    padding-bottom: 40rpx;
+}
+
+/* 联系人卡片 */
+.contact-group {
+    margin-bottom: 8rpx;
+}
+
+.contact-card {
+    background: #ffffff;
+    border-radius: 20rpx;
+    padding: 28rpx 20rpx;
+    margin-bottom: 16rpx;
+    display: flex;
+    align-items: center;
+    gap: 20rpx;
+    box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+    transition: all 0.3s;
+    border: 2rpx solid transparent;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+    position: relative;
+}
+
+.contact-card:active {
+    transform: translateY(-2rpx);
+    box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.1);
+    border-color: #e5e7eb;
+}
+
+/* 头像 */
+.contact-avatar {
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 50%;
+    background: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.avatar-text {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1;
+}
+
+/* 联系人信息 */
+.contact-info {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.contact-name-row {
+    display: flex;
+    align-items: center;
+    gap: 12rpx;
+    margin-bottom: 8rpx;
+    min-width: 0;
+}
+
+.contact-name {
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #1f2937;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+}
+
+.platform-badge {
+    background: #dbeafe;
+    color: #3b82f6;
+    font-size: 20rpx;
+    padding: 4rpx 12rpx;
+    border-radius: 8rpx;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.contact-company {
+    display: block;
+    font-size: 26rpx;
+    color: #6b7280;
+    margin-bottom: 4rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contact-phone {
+    display: block;
+    font-size: 28rpx;
+    color: #374151;
+    margin-bottom: 8rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contact-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8rpx;
+    margin-top: 8rpx;
+}
+
+.tag {
+    font-size: 22rpx;
+    padding: 4rpx 12rpx;
+    border-radius: 8rpx;
+}
+
+.source-tag {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.note-tag {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+/* 操作按钮 */
+.contact-actions {
+    display: flex;
+    align-items: center;
+    gap: 10rpx;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    border-radius: 12rpx;
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+}
+
+/* 主要操作：呼叫按钮 */
+.call-btn.primary {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    color: #ffffff;
+    padding: 18rpx 24rpx;
+    border-radius: 50rpx;
+    box-shadow: 0 6rpx 16rpx rgba(22, 163, 74, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6rpx;
+    min-width: 100rpx;
+    max-width: 120rpx;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.call-btn.primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.call-btn.primary:active::before {
+    left: 100%;
+}
+
+.call-btn.primary:active {
+    background: linear-gradient(135deg, #15803d, #166534);
+    box-shadow: 0 3rpx 10rpx rgba(22, 163, 74, 0.35);
+    transform: scale(0.96);
+}
+
+.call-btn .action-icon {
+    font-size: 34rpx;
+    line-height: 1;
+    filter: drop-shadow(0 2rpx 4rpx rgba(0, 0, 0, 0.1));
+}
+
+.call-btn .call-icon {
+    width: 34rpx;
+    height: 34rpx;
+    filter: drop-shadow(0 2rpx 4rpx rgba(0, 0, 0, 0.1));
+}
+
+.call-btn .action-text {
+    font-size: 28rpx;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5rpx;
+    white-space: nowrap;
+}
+
+/* 更多操作按钮 */
+.more-btn {
+    width: 64rpx;
+    height: 64rpx;
+    background: #f9fafb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2rpx solid #e5e7eb;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.more-btn:active {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+    transform: scale(0.92);
+}
+
+.more-btn .action-icon {
+    font-size: 40rpx;
+    color: #6b7280;
+    font-weight: bold;
+    line-height: 1;
+    transform: rotate(90deg);
+    letter-spacing: -4rpx;
+}
+
+.action-icon {
+    font-size: 28rpx;
+    line-height: 1;
+}
+
+/* 空状态 */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120rpx 40rpx;
+    text-align: center;
+}
+
+.empty-icon {
+    width: 120rpx;
+    height: 120rpx;
+    margin-bottom: 32rpx;
+    opacity: 0.5;
+}
+
+.empty-text {
+    font-size: 32rpx;
+    color: #6b7280;
+    margin-bottom: 16rpx;
+}
+
+.empty-hint {
+    font-size: 26rpx;
+    color: #9ca3af;
+}
+
+/* 弹窗遮罩 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    overflow: visible;
+}
+
+.modal-content {
+    width: 80%;
+    max-width: 600rpx;
+    background: #ffffff;
+    border-radius: 24rpx;
+    overflow: visible;
+    animation: modalSlideIn 0.3s ease-out;
+    position: relative;
+    z-index: 10000;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(100rpx);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32rpx;
+    border-bottom: 2rpx solid #f3f4f6;
+}
+
+.modal-title {
+    font-size: 36rpx;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.modal-close {
+    width: 48rpx;
+    height: 48rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #6b7280;
+    font-size: 32rpx;
+}
+
+.modal-body {
+    padding: 32rpx;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+}
+
+.form-item {
+    margin-bottom: 32rpx;
+}
+
+.form-item:last-child {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: block;
+    font-size: 28rpx;
+    color: #374151;
+    margin-bottom: 16rpx;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    height: 88rpx;
+    background: #f5f5f5;
+    border-radius: 12rpx;
+    padding: 0 24rpx;
+    font-size: 28rpx;
+    color: #1f2937;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.form-value {
+    display: block;
+    font-size: 30rpx;
+    color: #1f2937;
+    padding: 24rpx;
+    background: #f5f5f5;
+    border-radius: 12rpx;
+}
+
+.form-textarea {
+    width: 100%;
+    min-height: 120rpx;
+    background: #f5f5f5;
+    border-radius: 12rpx;
+    padding: 24rpx;
+    font-size: 28rpx;
+    color: #1f2937;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.modal-footer {
+    display: flex;
+    border-top: 2rpx solid #f3f4f6;
+}
+
+.modal-btn {
+    flex: 1;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 32rpx;
+    border: none;
+    border-radius: 0;
+    background: #ffffff;
+}
+
+.cancel-btn {
+    color: #6b7280;
+    border-right: 2rpx solid #f3f4f6;
+}
+
+.confirm-btn {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+.modal-btn:active {
+    background: #f5f5f5;
+}

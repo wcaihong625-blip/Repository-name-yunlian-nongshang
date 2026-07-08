@@ -1,0 +1,10 @@
+{
+  "name": "getNextSalesStaffCode",
+  "version": "1.0.0",
+  "description": "生成下一个业务员编号 YW#####（管理端）",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-sales-staff": "file:../common/nxt-sales-staff"
+  }
+}

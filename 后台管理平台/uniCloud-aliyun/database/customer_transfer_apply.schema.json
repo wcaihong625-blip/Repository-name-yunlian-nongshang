@@ -1,0 +1,94 @@
+{
+  "bsonType": "object",
+  "required": ["customer_id", "customer_name", "from_sales_id", "from_sales_name", "to_sales_id", "to_sales_name", "apply_reason", "status", "apply_by", "created_at", "updated_at"],
+  "permission": {
+    "read": true,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": {
+      "description": "主键",
+      "bsonType": "string"
+    },
+    "customer_id": {
+      "description": "客户ID",
+      "bsonType": "string"
+    },
+    "customer_name": {
+      "description": "客户名称",
+      "bsonType": "string"
+    },
+    "user_id": {
+      "description": "用户ID（customer_profile.user_id）",
+      "bsonType": "string"
+    },
+    "mobile": {
+      "description": "客户手机号",
+      "bsonType": "string"
+    },
+    "from_sales_id": {
+      "description": "原业务员ID（客户当前归属）",
+      "bsonType": "string"
+    },
+    "from_sales_name": {
+      "description": "原业务员姓名（客户当前归属）",
+      "bsonType": "string"
+    },
+    "to_sales_id": {
+      "description": "目标业务员ID",
+      "bsonType": "string"
+    },
+    "to_sales_name": {
+      "description": "目标业务员姓名",
+      "bsonType": "string"
+    },
+    "apply_reason": {
+      "description": "转移原因",
+      "bsonType": "string"
+    },
+    "status": {
+      "description": "申请状态 0=待审批 1=已通过 2=已拒绝",
+      "bsonType": "int",
+      "defaultValue": 0,
+      "enum": [
+        { "value": 0, "text": "待审批" },
+        { "value": 1, "text": "已通过" },
+        { "value": 2, "text": "已拒绝" }
+      ]
+    },
+    "apply_by": {
+      "description": "申请人ID（后台管理员）",
+      "bsonType": "string"
+    },
+    "apply_by_name": {
+      "description": "申请人姓名",
+      "bsonType": "string"
+    },
+    "audit_reason": {
+      "description": "审批原因（拒绝时为拒绝原因）",
+      "bsonType": "string"
+    },
+    "audit_by": {
+      "description": "审批人ID（后台管理员）",
+      "bsonType": "string"
+    },
+    "audit_by_name": {
+      "description": "审批人姓名",
+      "bsonType": "string"
+    },
+    "audit_time": {
+      "description": "审批时间",
+      "bsonType": "timestamp"
+    },
+    "created_at": {
+      "description": "创建时间",
+      "bsonType": "timestamp"
+    },
+    "updated_at": {
+      "description": "更新时间",
+      "bsonType": "timestamp"
+    }
+  }
+}

@@ -1,0 +1,257 @@
+/* pages/follows/follows.wxss */
+.follows-page {
+    min-height: 100vh;
+    background: #f5f5f5;
+}
+
+/* 内容区域 */
+.content-section {
+    height: 100vh;
+}
+
+/* 空状态 */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120rpx 48rpx;
+    min-height: 60vh;
+}
+
+.empty-icon {
+    font-size: 120rpx;
+    margin-bottom: 32rpx;
+    opacity: 0.5;
+}
+
+.empty-text {
+    font-size: 32rpx;
+    color: #6b7280;
+    margin-bottom: 16rpx;
+    font-weight: 500;
+}
+
+.empty-hint {
+    font-size: 26rpx;
+    color: #9ca3af;
+}
+
+/* 用户列表容器 */
+.user-list {
+    background: #ffffff;
+    border-radius: 24rpx;
+    margin: 24rpx 32rpx;
+    overflow: hidden;
+    box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+/* 用户卡片 - 三栏布局 */
+
+.user-card {
+    background: #ffffff;
+    padding: 32rpx 24rpx;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.user-card:active {
+    background: #f9fafb;
+}
+
+.user-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 24rpx;
+    right: 24rpx;
+    height: 1rpx;
+    background: #f3f4f6;
+}
+
+.user-card:last-child::after {
+    display: none;
+}
+
+/* 左侧：头像区 */
+.avatar-section {
+    flex-shrink: 0;
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16rpx;
+    overflow: hidden;
+}
+
+.user-avatar {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 16rpx;
+    background: #f3f4f6;
+    flex-shrink: 0;
+}
+
+/* 中部：核心信息区 */
+.info-section {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6rpx;
+    padding-right: 12rpx;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+/* 第一行：昵称 + 认证标识 */
+.name-row {
+    margin-bottom: 4rpx;
+    flex-wrap: wrap;
+    gap: 8rpx;
+}
+
+.user-name {
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #1f2937;
+    line-height: 1.4;
+    margin-right: 8rpx;
+}
+
+.verify-badge {
+    font-size: 20rpx;
+    padding: 2rpx 10rpx;
+    border-radius: 8rpx;
+    line-height: 1.4;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+.verify-badge.real-name {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.verify-badge.enterprise {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+/* 第二行：主营行业/标签 */
+.industry-row {
+    margin-bottom: 2rpx;
+}
+
+.industry-text {
+    font-size: 26rpx;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+/* 第三行：个性签名/简介 */
+.bio-row {
+    margin-top: 2rpx;
+}
+
+.bio-text {
+    font-size: 26rpx;
+    color: #9ca3af;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+}
+
+/* 右侧：操作与状态区 */
+.action-section {
+    flex-shrink: 0;
+    margin-left: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.follow-btn {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 112rpx !important;
+    max-width: none !important;
+    height: 56rpx !important;
+    line-height: 56rpx;
+    padding: 0 20rpx;
+    border-radius: 28rpx;
+    font-size: 26rpx;
+    font-weight: 500;
+    border: none;
+    box-sizing: border-box !important;
+    text-align: center;
+    transition: all 0.2s ease;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+
+/* 重置微信小程序 button 的默认 ::after 伪元素 */
+.follow-btn::after {
+    border: none;
+    width: 0;
+    height: 0;
+}
+
+/* 关注按钮 - 主色调填充 */
+.follow-btn.follow {
+    background: #16a34a;
+    color: #ffffff;
+}
+
+.follow-btn.follow:active {
+    background: #15803d;
+    transform: scale(0.96);
+}
+
+/* 已关注按钮 - 中性色描边 */
+.follow-btn.following {
+    background: transparent;
+    color: #6b7280;
+    border: 2rpx solid #e5e7eb;
+}
+
+.follow-btn.following:active {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    transform: scale(0.96);
+}
+
+/* 相互关注按钮 - 轻量文字标签 */
+.follow-btn.mutual {
+    background: transparent;
+    color: #16a34a;
+    border: 2rpx solid #dcfce7;
+}
+
+.follow-btn.mutual:active {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    transform: scale(0.96);
+}
+
+/* 加载更多 */
+.loading-more,
+.no-more {
+    text-align: center;
+    padding: 32rpx 0;
+    font-size: 26rpx;
+    color: #9ca3af;
+}

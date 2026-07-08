@@ -1,0 +1,9 @@
+{
+  "name": "fixCustomerTransferApplyStatus",
+  "version": "1.0.0",
+  "description": "对齐 customer_transfer_apply 的 status 与 apply_status 历史脏数据",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth"
+  }
+}

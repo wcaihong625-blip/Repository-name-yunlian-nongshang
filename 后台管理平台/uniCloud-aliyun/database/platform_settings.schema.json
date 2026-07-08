@@ -1,0 +1,28 @@
+{
+  "bsonType": "object",
+  "required": ["_id"],
+  "properties": {
+    "_id": {
+      "description": "固定主键，例如 default",
+      "bsonType": "string"
+    },
+    "customer_service_phone": {
+      "description": "客服电话（小程序「我的」联系客服）",
+      "bsonType": "string"
+    },
+    "membership_promotion_config": {
+      "description": "会员与推广运营配置（member_plans / member_rights / promotion_prices / feature_switches）",
+      "bsonType": "object"
+    },
+    "create_time": {
+      "description": "创建时间（时间戳，毫秒）",
+      "bsonType": "timestamp",
+      "label": "创建时间"
+    },
+    "update_time": {
+      "description": "最后更新时间（时间戳，毫秒）",
+      "bsonType": "timestamp",
+      "label": "更新时间"
+    }
+  }
+}

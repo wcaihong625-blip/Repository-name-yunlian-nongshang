@@ -1,0 +1,26 @@
+[
+  {
+    "IndexName": "user_id_unique",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [{ "Name": "user_id", "Direction": "1" }],
+      "MgoIsUnique": true
+    }
+  },
+  {
+    "IndexName": "status_created",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [
+        { "Name": "status", "Direction": "1" },
+        { "Name": "created_at", "Direction": "-1" }
+      ],
+      "MgoIsUnique": false
+    }
+  },
+  {
+    "IndexName": "created_at",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [{ "Name": "created_at", "Direction": "-1" }],
+      "MgoIsUnique": false
+    }
+  }
+]

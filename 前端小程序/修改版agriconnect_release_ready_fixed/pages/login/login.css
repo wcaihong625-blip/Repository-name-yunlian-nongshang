@@ -1,0 +1,250 @@
+/* pages/login/login.wxss */
+.login-container {
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40rpx 48rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+/* 背景装饰 */
+.bg-decoration {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+    filter: blur(60rpx);
+}
+
+.bg-1 {
+    width: 512rpx;
+    height: 512rpx;
+    background: #dcfce7;
+    top: -160rpx;
+    right: -160rpx;
+}
+
+/* 内容容器 */
+.content-wrapper {
+    width: 100%;
+    max-width: 750rpx;
+    position: relative;
+    z-index: 10;
+}
+
+/* Logo区域 */
+.logo-section {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 60rpx;
+}
+
+.logo-box {
+    width: 110px;
+    height: 110px;
+    background: transparent;
+    border-radius: 48rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12rpx;
+    transform: rotate(3deg);
+}
+
+.logo-icon {
+    width: 98px;
+    height: 98px;
+}
+
+.app-title {
+    display: block;
+    font-size: 55rpx;
+    font-weight: bold;
+    color: #111827;
+    margin-bottom: 6rpx;
+}
+
+.app-subtitle {
+    display: block;
+    font-size: 22rpx;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* 表单区域 */
+.form-section {
+    width: 100%;
+    margin-top: 60rpx;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 16rpx;
+    padding: 20rpx;
+    background: #fef2f2;
+    border: 2rpx solid #fecaca;
+    color: #dc2626;
+    font-size: 24rpx;
+    border-radius: 24rpx;
+    margin-bottom: 24rpx;
+}
+
+/* 微信一键登录按钮 */
+.wx-login-button {
+    width: 100%;
+    height: 96rpx;
+    background: #07c160;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 32rpx;
+    padding: 0;
+    line-height: 96rpx;
+    border-radius: 32rpx;
+    margin-top: 24rpx;
+    box-shadow: 0 8rpx 16rpx rgba(7, 193, 96, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12rpx;
+    border: none;
+}
+
+.wx-login-button:active {
+    transform: scale(0.95);
+    background: #06ad56;
+}
+
+.wx-login-button[disabled] {
+    opacity: 0.7;
+    background: #9ca3af;
+}
+
+.wx-icon {
+    font-size: 36rpx;
+    line-height: 1;
+}
+
+/* 管理员入口 */
+.admin-entry {
+    text-align: center;
+    margin-top: 32rpx;
+    font-size: 24rpx;
+    color: #9ca3af;
+    padding: 8rpx 24rpx;
+    border-radius: 9999rpx;
+}
+
+/* 用户协议 */
+.agreement-section {
+    margin-top: 32rpx;
+    padding: 0 8rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.agreement-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16rpx;
+}
+
+.agreement-checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.agreement-checkbox {
+    transform: scale(0.75);
+    margin: 0;
+}
+
+.agreement-text {
+    flex: 0 0 auto;
+    font-size: 22rpx;
+    color: #6b7280;
+    line-height: 1.6;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rpx;
+    align-items: center;
+}
+
+.link-text {
+    color: #16a34a;
+}
+
+/* 弹窗样式 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 32rpx;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 640rpx;
+    background: #ffffff;
+    border-radius: 32rpx;
+    overflow: hidden;
+    animation: modalShow 0.2s;
+}
+
+@keyframes modalShow {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    background: #1e293b;
+    color: #ffffff;
+    padding: 32rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-weight: bold;
+    font-size: 28rpx;
+}
+
+.modal-close {
+    font-size: 36rpx;
+    color: #94a3b8;
+    padding: 8rpx;
+}
+
+.modal-body {
+    padding: 48rpx;
+}
+
+.hint-text {
+    display: block;
+    text-align: center;
+    margin-top: 32rpx;
+    font-size: 20rpx;
+    color: #9ca3af;
+}

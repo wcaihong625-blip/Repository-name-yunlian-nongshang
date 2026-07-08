@@ -1,0 +1,6 @@
+{
+  "jwt": {
+    "secret": "NXT_2026_VERY_STRONG_JWT_SECRET_STRING_XYZ987",
+    "expiresIn": "7d"
+  }
+}

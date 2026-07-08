@@ -1,0 +1,14 @@
+{
+  "development": {
+    "weixin": {
+      "appId": "wxd99b4bc1e6c61afd",
+      "appSecret": "d8177a40ef59d257c496e7dc61a25511"
+    }
+  },
+  "production": {
+    "weixin": {
+      "appId": "wxd99b4bc1e6c61afd",
+      "appSecret": "d8177a40ef59d257c496e7dc61a25511"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "getPurchaseList",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-search-index": "file:../common/nxt-search-index",
+    "nxt-view-count": "file:../common/nxt-view-count"
+  }
+}

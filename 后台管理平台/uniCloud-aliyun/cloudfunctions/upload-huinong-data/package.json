@@ -1,0 +1,12 @@
+{
+  "name": "upload-huinong-data",
+  "version": "1.0.0",
+  "description": "上传惠农网数据到云存储",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "author": "",
+  "license": "ISC"
+}

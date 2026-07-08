@@ -1,0 +1,15 @@
+{
+  "name": "recognizeAuthOcr",
+  "version": "1.0.0",
+  "description": "百度OCR识别认证证件",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "uni-config-center": "file:../common/uni-config-center"
+  },
+  "cloudfunction-config": {
+    "memorySize": 256,
+    "runtime": "Nodejs18",
+    "timeout": 60
+  }
+}

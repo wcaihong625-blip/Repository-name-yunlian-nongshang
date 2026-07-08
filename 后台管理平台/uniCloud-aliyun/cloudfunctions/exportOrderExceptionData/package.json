@@ -1,0 +1,11 @@
+{
+  "name": "exportOrderExceptionData",
+  "version": "1.0.0",
+  "description": "导出异常订单处理清单（运营跟单，非财务结算单）",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-commission-month": "file:../common/nxt-commission-month",
+    "nxt-order-exception": "file:../common/nxt-order-exception"
+  }
+}

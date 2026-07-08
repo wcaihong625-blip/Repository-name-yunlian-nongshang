@@ -1,0 +1,13 @@
+{
+  "name": "createMemberWxPayParams",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-member-coupon": "file:../common/nxt-member-coupon",
+    "nxt-member-order-apply-paid": "file:../common/nxt-member-order-apply-paid",
+    "nxt-membership-promotion-config": "file:../common/nxt-membership-promotion-config",
+    "uni-config-center": "file:../common/uni-config-center"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

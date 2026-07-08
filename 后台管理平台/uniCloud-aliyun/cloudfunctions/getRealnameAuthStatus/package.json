@@ -1,0 +1,13 @@
+{
+  "name": "getRealnameAuthStatus",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth"
+  },
+  "cloudfunction-config": {
+    "memorySize": 256,
+    "runtime": "Nodejs18",
+    "timeout": 60
+  }
+}

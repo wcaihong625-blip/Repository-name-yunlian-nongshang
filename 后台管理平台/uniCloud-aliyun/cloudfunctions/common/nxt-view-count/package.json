@@ -1,0 +1,6 @@
+{
+  "name": "nxt-view-count",
+  "version": "1.0.0",
+  "description": "NXT 统一浏览量口径模块 - 真实浏览读取 / 推广增量计算 / 内容浏览汇总",
+  "main": "index.js"
+}

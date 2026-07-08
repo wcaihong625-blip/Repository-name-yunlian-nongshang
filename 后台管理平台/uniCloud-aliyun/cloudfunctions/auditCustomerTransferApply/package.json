@@ -1,0 +1,9 @@
+{
+  "name": "auditCustomerTransferApply",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth"
+  }
+}

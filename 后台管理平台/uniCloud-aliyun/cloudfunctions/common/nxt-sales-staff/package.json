@@ -1,0 +1,6 @@
+{
+  "name": "nxt-sales-staff",
+  "version": "1.0.0",
+  "description": "业务员编号解析、批量查询、YW 递增编号",
+  "main": "index.js"
+}

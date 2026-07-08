@@ -1,0 +1,220 @@
+@import '@/styles/admin-theme.scss';
+
+.page-shell {
+  background: $admin-bg;
+  min-height: 100%;
+  padding: $admin-page-padding;
+  box-sizing: border-box;
+}
+
+.page-header {
+  @include admin-card;
+  padding: 20px;
+  margin-bottom: $admin-section-gap;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: $admin-text-title;
+  line-height: 1.25;
+}
+
+.page-subtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  color: $admin-text-muted;
+}
+
+.section-card,
+.filter-card,
+.table-card,
+.detail-section,
+.form-section {
+  @include admin-card;
+  padding: $admin-card-padding;
+  margin-bottom: $admin-section-gap;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: $admin-text-title;
+  margin-bottom: 12px;
+}
+
+.summary-card {
+  @include admin-card;
+  padding: $admin-card-padding;
+  margin-bottom: $admin-section-gap;
+}
+
+.action-bar {
+  @include admin-card;
+  padding: 14px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.toolbar-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.quick-entry-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.quick-entry-item {
+  min-height: 100px;
+  border: 1px solid #e7edf5;
+  border-radius: 10px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px;
+  font-size: 13px;
+  color: $admin-text-main;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.quick-entry-item:hover {
+  transform: translateY(-2px);
+  border-color: #cfd8e5;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+}
+
+.quick-entry-item .entry-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-entry-item .entry-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: $admin-text-title;
+}
+
+.quick-entry-item .entry-desc {
+  font-size: 12px;
+  color: $admin-text-muted;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.stat-card {
+  @include admin-card;
+  min-height: 138px;
+  padding: 14px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
+}
+
+.stat-card .label {
+  font-size: 13px;
+  color: $admin-text-secondary;
+}
+
+.stat-card .value {
+  margin-top: 8px;
+  font-size: 30px;
+  font-weight: 600;
+  color: $admin-text-title;
+}
+
+.stat-card .meta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: $admin-text-muted;
+}
+
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: #f1f5f9;
+  color: $admin-text-secondary;
+}
+
+.status-tag--success { background: #ecfdf3; color: #15803d; }
+.status-tag--warn { background: #fff7ed; color: #b45309; }
+.status-tag--danger { background: #fef2f2; color: #b91c1c; }
+
+.empty-state {
+  padding: 26px 12px;
+  text-align: center;
+  font-size: 13px;
+  color: $admin-text-muted;
+}
+
+.empty-state .empty-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 8px;
+  border-radius: 50%;
+  background: #eef2f7;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-state .empty-tip {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 1280px) {
+  .stat-grid,
+  .quick-entry-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media screen and (max-width: 992px) {
+  .info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat-grid,
+  .quick-entry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page-header { flex-direction: column; align-items: flex-start; }
+}
+
+@media screen and (max-width: 640px) {
+  .page-shell { padding: 14px; }
+  .info-grid,
+  .stat-grid,
+  .quick-entry-grid { grid-template-columns: 1fr; }
+}

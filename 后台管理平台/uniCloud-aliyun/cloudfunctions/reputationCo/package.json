@@ -1,0 +1,15 @@
+{
+  "name": "reputationCo",
+  "version": "1.0.0",
+  "description": "信誉举报评价（合并 submit/handle/summary/reviews/review/rebuild）",
+  "main": "index.obj.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-reputation": "file:../common/nxt-reputation"
+  },
+  "cloudfunction-config": {
+    "memorySize": 256,
+    "runtime": "Nodejs18",
+    "timeout": 60
+  }
+}

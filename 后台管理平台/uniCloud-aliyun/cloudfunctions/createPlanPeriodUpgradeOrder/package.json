@@ -1,0 +1,12 @@
+{
+  "name": "createPlanPeriodUpgradeOrder",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-member-coupon": "file:../common/nxt-member-coupon",
+    "nxt-member-upgrade-enterprise": "file:../common/nxt-member-upgrade-enterprise",
+    "nxt-membership-promotion-config": "file:../common/nxt-membership-promotion-config"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

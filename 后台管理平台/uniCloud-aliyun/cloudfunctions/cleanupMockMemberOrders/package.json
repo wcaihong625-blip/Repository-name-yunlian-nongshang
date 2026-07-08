@@ -1,0 +1,9 @@
+{
+  "name": "cleanupMockMemberOrders",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

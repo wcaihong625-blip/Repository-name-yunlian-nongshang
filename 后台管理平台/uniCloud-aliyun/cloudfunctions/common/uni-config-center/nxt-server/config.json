@@ -1,0 +1,13 @@
+{
+  "jwt": {
+    "secret": "NXT_2026_VERY_STRONG_JWT_SECRET_STRING_XYZ987",
+    "expiresIn": "7d"
+  },
+  "admin": {
+    "requireLogin": true
+  },
+  "pay_callback": {
+    "internal_secret": "abc123456789",
+    "comment": "留空则仅管理员可调用 applyMemberOrderPaidResult；填入后与请求体 internal_secret 一致时允许服务端回调（勿提交到公开仓库）"
+  }
+}

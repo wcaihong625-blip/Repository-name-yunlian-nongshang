@@ -1,0 +1,10 @@
+{
+  "name": "exportCustomerProfileData",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-sales-staff": "file:../common/nxt-sales-staff"
+  }
+}

@@ -1,0 +1,3 @@
+{"bsonType":"object","required":["follower_id","following_id","created_date"],"properties":{"follower_id":{"bsonType":"string","description":"关注者ID（发起关注的人）","foreignKey":"uni-id-users._id"},"following_id":{"bsonType":"string","description":"被关注者ID（被关注的人）","foreignKey":"uni-id-users._id"},"created_date":{"bsonType":"timestamp","description":"关注时间"}},"indexes":[{"name":"follower_following_unique","unique":true,"fields":{"follower_id":1,"following_id":1}},{"name":"follower_id_idx","fields":{"follower_id":1}},{"name":"following_id_idx","fields":{"following_id":1}}]}
+
+

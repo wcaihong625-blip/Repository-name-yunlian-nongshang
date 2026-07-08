@@ -1,0 +1,9 @@
+{
+  "name": "repairMemberOrderCustomerInfo",
+  "version": "1.0.0",
+  "description": "安全回填订单客户姓名/手机号（仅空值，来源 customer_profile）",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth"
+  }
+}

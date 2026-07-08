@@ -1,0 +1,16 @@
+{
+  "name": "commissionSettleCo",
+  "version": "1.0.0",
+  "description": "业务员提成结算（合并原 generate/confirm/preview/list/detail/export 云函数）",
+  "main": "index.obj.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-commission-month": "file:../common/nxt-commission-month",
+    "nxt-sales-staff": "file:../common/nxt-sales-staff"
+  },
+  "cloudfunction-config": {
+    "memorySize": 512,
+    "runtime": "Nodejs18",
+    "timeout": 120
+  }
+}

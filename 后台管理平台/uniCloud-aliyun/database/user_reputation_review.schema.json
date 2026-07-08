@@ -1,0 +1,37 @@
+{
+  "bsonType": "object",
+  "required": ["target_user_id", "review_user_id", "score", "status", "created_at"],
+  "permission": {
+    "read": "'admin' in auth.role",
+    "create": false,
+    "update": "'admin' in auth.role",
+    "delete": false
+  },
+  "properties": {
+    "_id": { "description": "主键" },
+    "target_user_id": { "bsonType": "string", "title": "被评价用户ID" },
+    "target_user_name": { "bsonType": "string", "title": "被评价用户昵称" },
+    "review_user_id": { "bsonType": "string", "title": "评价人ID" },
+    "review_user_name": { "bsonType": "string", "title": "评价人昵称" },
+    "score": { "bsonType": "int", "title": "评分1-5", "minimum": 1, "maximum": 5 },
+    "content": { "bsonType": "string", "title": "评价内容" },
+    "tags": {
+      "bsonType": "array",
+      "title": "标签",
+      "items": { "bsonType": "string" }
+    },
+    "status": {
+      "bsonType": "string",
+      "title": "状态",
+      "enum": [
+        { "value": "normal", "text": "正常展示" },
+        { "value": "hidden", "text": "已隐藏" }
+      ],
+      "defaultValue": "normal"
+    },
+    "source_type": { "bsonType": "string", "title": "来源", "description": "如 mini_program / admin" },
+    "related_content_id": { "bsonType": "string", "title": "关联业务ID" },
+    "created_at": { "bsonType": "timestamp", "title": "创建时间", "forceDefaultValue": { "$env": "now" } },
+    "updated_at": { "bsonType": "timestamp", "title": "更新时间", "forceDefaultValue": { "$env": "now" } }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "nxt-membership-promotion-config",
+  "version": "1.0.0",
+  "description": "会员与推广运营配置公共逻辑（platform_settings.membership_promotion_config）",
+  "main": "index.js",
+  "dependencies": {}
+}

@@ -1,0 +1,10 @@
+{
+  "name": "createPromotionWxPayParams",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "uni-config-center": "file:../common/uni-config-center"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

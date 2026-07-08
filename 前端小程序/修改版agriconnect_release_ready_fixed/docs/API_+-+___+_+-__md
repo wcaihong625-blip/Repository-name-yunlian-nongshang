@@ -1,0 +1,299 @@
+# 客服电话管理 API 接口说明
+
+## 概述
+
+已为系统预留客服电话管理的 API 接口，支持在后台管理面板中修改客服电话。客服电话将从数据库动态获取，不再硬编码在前端代码中。
+
+## 数据库结构
+
+### platform_settings 集合
+
+已在 `platform_settings` 集合中添加了 `customer_service_phone` 字段：
+
+```json
+{
+  "_id": "default",
+  "customer_service_phone": "400-123-8888",
+  "open_shop_price_original": 0,
+  "open_shop_price_discount": 0,
+  "realname_stage": "open_shop",
+  "create_time": 1234567890000,
+  "update_time": 1234567890000
+}
+```
+
+## 云函数接口
+
+### 1. getSystemSettings - 获取系统配置
+
+**功能：** 获取系统配置信息，包括客服电话等
+
+**调用方式：**
+```javascript
+uniCloud.callFunction({
+  name: 'getSystemSettings',
+  data: {}
+})
+```
+
+**返回格式：**
+```javascript
+{
+  code: 200,
+  message: "获取成功",
+  data: {
+    customer_service_phone: "400-123-8888",
+    open_shop_price_original: 0,
+    open_shop_price_discount: 0,
+    realname_stage: "open_shop"
+  }
+}
+```
+
+**说明：**
+- 如果数据库中没有配置记录，会返回默认值
+- 客服电话的默认值为 `"400-123-8888"`
+
+---
+
+### 2. updateSystemSettings - 更新系统配置
+
+**功能：** 更新系统配置信息（包括客服电话），供后台管理面板使用
+
+**调用方式：**
+```javascript
+uniCloud.callFunction({
+  name: 'updateSystemSettings',
+  data: {
+    token: "管理员token",  // TODO: 需要在后台管理面板中传递管理员token
+    settings: {
+      customer_service_phone: "400-888-9999",  // 可选
+      open_shop_price_original: 100,           // 可选
+      open_shop_price_discount: 80,            // 可选
+      realname_stage: "open_shop"              // 可选
+    }
+  }
+})
+```
+
+**参数说明：**
+
+| 参数 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| token | string | 是 | 管理员登录token（TODO: 需要添加权限验证） |
+| settings | object | 是 | 要更新的配置项对象 |
+| settings.customer_service_phone | string | 否 | 客服电话，支持格式：400-123-8888, 4001238888, +86-400-123-8888 等 |
+| settings.open_shop_price_original | number | 否 | 开店原价（元） |
+| settings.open_shop_price_discount | number | 否 | 开店折后价（元） |
+| settings.realname_stage | string | 否 | 实名认证触发环节：none/register/open_shop/publish_goods/place_order |
+
+**返回格式：**
+```javascript
+{
+  code: 200,
+  message: "更新成功",
+  data: {
+    customer_service_phone: "400-888-9999",
+    open_shop_price_original: 100,
+    open_shop_price_discount: 80,
+    realname_stage: "open_shop",
+    update_time: 1234567890000
+  }
+}
+```
+
+**错误码：**
+- `400`: 参数错误（如客服电话格式不正确、价格不能为负数等）
+- `401`: 未登录或登录已过期（TODO: 需要实现权限验证）
+- `403`: 无权访问，需要管理员权限（TODO: 需要实现权限验证）
+- `500`: 服务器内部错误
+
+**注意事项：**
+1. ⚠️ **权限验证待实现**：当前 `updateSystemSettings` 云函数中已预留管理员权限验证代码，但被注释掉了。接入后台管理面板时，请：
+   - 取消注释权限验证代码
+   - 确保管理员用户有相应的角色标识（如 `role: ['admin']`）
+   - 在后台管理面板调用时传递有效的管理员 token
+
+2. **字段验证**：
+   - 客服电话必须是非空字符串
+   - 价格字段必须是非负数
+   - `realname_stage` 必须是预定义的枚举值之一
+
+---
+
+## 前端 API 封装
+
+已在 `utils/api.js` 中封装了以下方法：
+
+### getSystemSettings()
+
+**用法：**
+```javascript
+import { getSystemSettings } from '@/utils/api.js';
+
+// 获取系统配置
+const settings = await getSystemSettings();
+console.log(settings.customer_service_phone); // "400-123-8888"
+```
+
+### updateSystemSettings(settings)
+
+**用法：**
+```javascript
+import { updateSystemSettings } from '@/utils/api.js';
+
+// 更新客服电话
+await updateSystemSettings({
+  customer_service_phone: '400-888-9999'
+});
+
+// 同时更新多个配置项
+await updateSystemSettings({
+  customer_service_phone: '400-888-9999',
+  open_shop_price_original: 100,
+  open_shop_price_discount: 80
+});
+```
+
+---
+
+## 前端使用
+
+### 已修改的文件
+
+1. **pages/profile/profile.vue**
+   - 添加了 `customerServicePhone` 数据字段
+   - 添加了 `loadSystemSettings()` 方法，在页面加载时获取客服电话
+   - 修改了 `goToService()` 方法，使用动态获取的客服电话
+
+**效果：**
+- 用户点击"联系客服"时，会使用数据库中的客服电话
+- 如果数据库中未配置，则使用默认值 `"400-123-8888"`
+
+---
+
+## 后台管理面板接入指南
+
+### 1. 添加权限验证
+
+在 `uniCloud-aliyun/cloudfunctions/updateSystemSettings/index.js` 中：
+
+```javascript
+// 取消注释并修改以下代码：
+const tokenResult = authHelper.verifyToken(event);
+if (!tokenResult.success) {
+  return res(401, '未登录或登录已过期');
+}
+
+// 验证是否为管理员
+const userRes = await db.collection('uni-id-users').doc(tokenResult.userId).get();
+if (!userRes.data || !userRes.data[0] || !userRes.data[0].role?.includes('admin')) {
+  return res(403, '无权访问，需要管理员权限');
+}
+```
+
+### 2. 在后台管理面板中调用
+
+```javascript
+// 示例：更新客服电话
+async function updateCustomerServicePhone(newPhone) {
+  try {
+    const result = await uniCloud.callFunction({
+      name: 'updateSystemSettings',
+      data: {
+        token: adminToken,  // 管理员的登录token
+        settings: {
+          customer_service_phone: newPhone
+        }
+      }
+    });
+    
+    if (result.result.code === 200) {
+      console.log('更新成功', result.result.data);
+    } else {
+      console.error('更新失败', result.result.message);
+    }
+  } catch (error) {
+    console.error('调用失败', error);
+  }
+}
+```
+
+### 3. 后台管理界面建议
+
+建议在后台管理面板中添加"系统设置"页面，包含：
+- 客服电话输入框
+- 开店价格设置
+- 实名认证环节设置
+- 保存按钮（调用 `updateSystemSettings` API）
+
+---
+
+## 数据库初始化
+
+如果数据库中还没有 `platform_settings` 记录，可以：
+
+1. **通过云函数自动创建**：首次调用 `updateSystemSettings` 时会自动创建
+2. **手动创建**：在 uniCloud 控制台的数据库中手动添加：
+
+```json
+{
+  "_id": "default",
+  "customer_service_phone": "400-123-8888",
+  "open_shop_price_original": 0,
+  "open_shop_price_discount": 0,
+  "realname_stage": "open_shop",
+  "create_time": 1672531200000,
+  "update_time": 1672531200000
+}
+```
+
+---
+
+## 测试建议
+
+1. **测试获取配置**：
+   ```javascript
+   // 在 uni-app 的任意页面中测试
+   import { getSystemSettings } from '@/utils/api.js';
+   const settings = await getSystemSettings();
+   console.log('客服电话:', settings.customer_service_phone);
+   ```
+
+2. **测试更新配置**（需要管理员权限）：
+   ```javascript
+   import { updateSystemSettings } from '@/utils/api.js';
+   await updateSystemSettings({
+     customer_service_phone: '400-999-8888'
+   });
+   ```
+
+3. **测试前端显示**：
+   - 打开个人中心页面
+   - 点击"联系客服"
+   - 确认拨打的电话是从数据库获取的
+
+---
+
+## 总结
+
+✅ 已完成的工作：
+- [x] 数据库 schema 已添加客服电话字段
+- [x] 创建了 `getSystemSettings` 云函数（获取配置）
+- [x] 创建了 `updateSystemSettings` 云函数（更新配置，预留权限验证）
+- [x] 前端 API 已封装
+- [x] 前端页面已改为动态获取客服电话
+
+⚠️ 待后续完成：
+- [ ] 在后台管理面板中添加管理员权限验证逻辑
+- [ ] 开发后台管理界面，允许管理员修改客服电话
+- [ ] 测试权限验证功能
+
+---
+
+## 联系支持
+
+如有问题，请查看：
+- 云函数日志：uniCloud 控制台 → 云函数 → 日志
+- 数据库日志：uniCloud 控制台 → 数据库 → 操作日志
+

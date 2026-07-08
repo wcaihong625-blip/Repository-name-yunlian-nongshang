@@ -1,0 +1,306 @@
+{
+  "bsonType": "object",
+  "required": ["order_no", "user_id", "pay_amount"],
+  "permission": {
+    "read": "true",
+    "create": "true",
+    "update": "'admin' in auth.role",
+    "delete": "'admin' in auth.role"
+  },
+  "properties": {
+    "_id": {
+      "bsonType": "string",
+      "description": "ID"
+    },
+    "order_no": {
+      "bsonType": "string",
+      "title": "订单号"
+    },
+    "user_id": {
+      "bsonType": "string",
+      "title": "用户ID"
+    },
+    "customer_id": {
+      "bsonType": "string",
+      "title": "客户ID（关联customer_profile）"
+    },
+    "mobile": {
+      "bsonType": "string",
+      "title": "手机号"
+    },
+    "order_type": {
+      "bsonType": "int",
+      "title": "订单类型",
+      "description": "1首开 2续费 3企业类型升级(个人→企业,备注upgrade_enterprise,到期不变) 4周期档位升级(备注upgrade_period,新到期=原到期+目标整段天数)",
+      "enum": [
+        {"value": 1, "text": "首次开通"},
+        {"value": 2, "text": "续费"},
+        {"value": 3, "text": "企业类型升级"},
+        {"value": 4, "text": "周期档位升级"}
+      ]
+    },
+    "order_status": {
+      "bsonType": "int",
+      "title": "订单业务/展示状态（与 pay_status 配合；新单支付成功时与 pay_status 同步为已支付）",
+      "description": "0-待支付 1-支付成功 2-已取消",
+      "defaultValue": 0,
+      "enum": [
+        {"value": 0, "text": "待支付"},
+        {"value": 1, "text": "支付成功"},
+        {"value": 2, "text": "已取消"}
+      ]
+    },
+    "pay_status": {
+      "bsonType": "int",
+      "title": "支付状态",
+      "description": "0-待支付 1-已支付 2-已取消 3-支付失败（预留）",
+      "enum": [
+        {"value": 0, "text": "待支付"},
+        {"value": 1, "text": "已支付"},
+        {"value": 2, "text": "已取消"},
+        {"value": 3, "text": "支付失败"}
+      ]
+    },
+    "transaction_id": {
+      "bsonType": "string",
+      "title": "第三方支付流水号"
+    },
+    "out_trade_no": {
+      "bsonType": "string",
+      "title": "商户订单号（对接微信 out_trade_no）"
+    },
+    "pay_order_no": {
+      "bsonType": "string",
+      "title": "平台内部支付单号"
+    },
+    "pay_callback_time": {
+      "bsonType": "timestamp",
+      "title": "支付回调处理时间"
+    },
+    "pay_mock_flag": {
+      "bsonType": "bool",
+      "title": "历史测试落账标记（仅展示/清理识别）",
+      "description": "不参与正式 uni-pay 支付判断；仅用于后台列表/详情展示及 cleanupMockMemberOrders 清理筛选。"
+    },
+    "cancel_time": {
+      "bsonType": "timestamp",
+      "title": "取消时间"
+    },
+    "close_reason": {
+      "bsonType": "string",
+      "title": "关闭/取消原因"
+    },
+    "refund_status": {
+      "bsonType": "int",
+      "title": "退款状态（预留）",
+      "description": "0-无退款 1-退款中 2-已退款（可按后续业务细化）"
+    },
+    "pay_amount": {
+      "bsonType": "double",
+      "title": "实际支付金额",
+      "description": "金额(元)"
+    },
+    "original_amount": {
+      "bsonType": "double",
+      "title": "原价"
+    },
+    "discount_amount": {
+      "bsonType": "double",
+      "title": "优惠金额",
+      "defaultValue": 0
+    },
+    "member_days": {
+      "bsonType": "int",
+      "title": "开通天数"
+    },
+    "member_type": {
+      "bsonType": "string",
+      "title": "目标会员类型",
+      "description": "personal/enterprise"
+    },
+    "plan_type": {
+      "bsonType": "string",
+      "title": "目标套餐周期",
+      "description": "month/quarter/year"
+    },
+    "gift_top_days": {
+      "bsonType": "int",
+      "title": "赠送置顶天数"
+    },
+    "gift_boost_days": {
+      "bsonType": "int",
+      "title": "赠送加急曝光天数"
+    },
+    "order_scene": {
+      "bsonType": "string",
+      "title": "订单场景",
+      "description": "new/renew/upgrade_plan/upgrade_member_type"
+    },
+    "from_member_type": {
+      "bsonType": "string",
+      "title": "原会员类型"
+    },
+    "to_member_type": {
+      "bsonType": "string",
+      "title": "目标会员类型（冗余）"
+    },
+    "from_plan_type": {
+      "bsonType": "string",
+      "title": "原套餐周期"
+    },
+    "to_plan_type": {
+      "bsonType": "string",
+      "title": "目标套餐周期（冗余）"
+    },
+    "pay_time": {
+      "bsonType": "timestamp",
+      "title": "支付时间"
+    },
+    "expire_time_before": {
+      "bsonType": "timestamp",
+      "title": "充值前过期时间"
+    },
+    "expire_time_after": {
+      "bsonType": "timestamp",
+      "title": "充值后过期时间"
+    },
+    "sales_id": {
+      "bsonType": "string",
+      "title": "本单提成业务员ID（当前服务业务员）"
+    },
+    "sales_name": {
+      "bsonType": "string",
+      "title": "本单提成业务员姓名"
+    },
+    "first_sales_id": {
+      "bsonType": "string",
+      "title": "首次归属业务员ID"
+    },
+    "first_sales_name": {
+      "bsonType": "string",
+      "title": "首次归属业务员姓名"
+    },
+    "channel_id": {
+      "bsonType": "string",
+      "title": "渠道ID"
+    },
+    "channel_name": {
+      "bsonType": "string",
+      "title": "渠道名称"
+    },
+    "invite_code": {
+      "bsonType": "string",
+      "title": "邀请码"
+    },
+    "commission_type": {
+      "bsonType": "string",
+      "title": "提成类型",
+      "description": "first_open / renewal",
+      "enum": [
+        {"value": "first_open", "text": "首开提成"},
+        {"value": "renewal", "text": "续费提成"}
+      ]
+    },
+    "commission_rate": {
+      "bsonType": "double",
+      "title": "当时提成比例",
+      "description": "0-1之间"
+    },
+    "commission_amount": {
+      "bsonType": "double",
+      "title": "应得提成金额(元)"
+    },
+    "commission_status": {
+      "bsonType": "int",
+      "title": "提成结算状态",
+      "description": "0-未结算 1-已结算",
+      "defaultValue": 0,
+      "enum": [
+        {"value": 0, "text": "未结算"},
+        {"value": 1, "text": "已结算"}
+      ]
+    },
+    "commission_settle_time": {
+      "bsonType": "timestamp",
+      "title": "结算时间"
+    },
+    "commission_settlement_id": {
+      "bsonType": "string",
+      "title": "提成结算单ID",
+      "description": "对应 sales_commission_settle._id，仅确认结算后写入"
+    },
+    "commission_settlement_month": {
+      "bsonType": "string",
+      "title": "提成结算月份",
+      "description": "YYYY-MM，与结算单 settle_month 一致"
+    },
+    "pay_channel": {
+      "bsonType": "string",
+      "title": "支付渠道",
+      "description": "例如 wxpay"
+    },
+    "source_type": {
+      "bsonType": "string",
+      "title": "来源标记",
+      "description": "如 wx_mini"
+    },
+    "coupon_id": {
+      "bsonType": "string",
+      "title": "会员优惠码ID",
+      "description": "member_coupon_code._id，待支付订单快照；支付成功后在统一落账时核销"
+    },
+    "coupon_code_id": {
+      "bsonType": "string",
+      "title": "会员优惠码ID兼容字段",
+      "description": "与 coupon_id 同义，便于前后台按 coupon_code_id 查询"
+    },
+    "coupon_code": {
+      "bsonType": "string",
+      "title": "会员优惠码",
+      "description": "下单时写入的码文本快照，与 coupon_id 对应"
+    },
+    "remark": {
+      "bsonType": "string",
+      "title": "备注",
+      "description": "常为 JSON：含 member_tier/plan_key/biz_type；upgrade_enterprise=企业类型升级；upgrade_period=周期档位升级。可选 biz_rule_hint 为产品规则摘要。"
+    },
+    "handle_status": {
+      "bsonType": "string",
+      "title": "人工处理状态",
+      "description": "pending=待处理 processing=跟进中 done=已处理 closed=已关闭；不影响支付/提成业务字段",
+      "defaultValue": "pending",
+      "enum": [
+        {"value": "pending", "text": "待处理"},
+        {"value": "processing", "text": "跟进中"},
+        {"value": "done", "text": "已处理"},
+        {"value": "closed", "text": "已关闭"}
+      ]
+    },
+    "handle_result": {
+      "bsonType": "string",
+      "title": "人工处理结论"
+    },
+    "followup_uid": {
+      "bsonType": "string",
+      "title": "跟进人UID"
+    },
+    "followup_name": {
+      "bsonType": "string",
+      "title": "跟进人姓名"
+    },
+    "handled_at": {
+      "bsonType": "timestamp",
+      "title": "最近人工处理时间"
+    },
+    "created_at": {
+      "bsonType": "timestamp",
+      "title": "创建时间",
+      "forceDefaultValue": {"$env": "now"}
+    },
+    "updated_at": {
+      "bsonType": "timestamp",
+      "title": "更新时间",
+      "forceDefaultValue": {"$env": "now"}
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "getOrderExceptionList",
+  "version": "1.0.0",
+  "description": "异常订单分页列表（对账异常口径 + 人工处理筛选）",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-commission-month": "file:../common/nxt-commission-month",
+    "nxt-order-exception": "file:../common/nxt-order-exception"
+  }
+}

@@ -1,0 +1,350 @@
+/* pages/profile/profile.wxss */
+.profile-page {
+    min-height: 100vh;
+    background: #f5f5f5;
+    padding-bottom: 160rpx;
+}
+
+/* 头部 */
+.profile-header {
+    background: linear-gradient(180deg, #16a34a, #15803d);
+    padding: 72rpx 48rpx 120rpx;
+    color: #ffffff;
+    position: relative;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 32rpx;
+    margin-top: 100rpx;
+    margin-bottom: 48rpx;
+}
+
+.avatar-wrapper {
+    position: relative;
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 50%;
+    overflow: visible;
+}
+
+.user-avatar {
+    width: 128rpx;
+    height: 128rpx;
+    border-radius: 50%;
+    border: 4rpx solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+    display: block;
+}
+
+.avatar-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 128rpx;
+    height: 128rpx;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.avatar-wrapper:active .avatar-mask {
+    opacity: 1;
+}
+
+.avatar-edit-text {
+    font-size: 20rpx;
+    color: #ffffff;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    display: block;
+    font-size: 40rpx;
+    font-weight: bold;
+    margin-bottom: 8rpx;
+}
+
+.user-phone-section {
+    margin-bottom: 8rpx;
+}
+
+.user-phone {
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.edit-icon {
+    font-size: 24rpx;
+    margin-left: 12rpx;
+    opacity: 0.8;
+}
+
+.phone-display-btn {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    line-height: normal;
+    text-align: left;
+    border: none;
+    outline: none;
+    display: inline-block;
+}
+
+.phone-display-btn::after {
+    border: none;
+}
+
+.phone-display-btn[disabled] {
+    opacity: 0.6;
+    background: transparent;
+}
+
+.empty-phone {
+    display: inline-block;
+    height: 52rpx;
+    padding: 0 24rpx;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 24rpx;
+    border-radius: 26rpx;
+    border: 2rpx solid rgba(255, 255, 255, 0.3);
+    line-height: 48rpx;
+}
+
+.empty-phone:active {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.user-status {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+    margin-top: 8rpx;
+    min-height: 40rpx;
+}
+
+.status-badge {
+    font-size: 24rpx;
+    padding: 4rpx 12rpx;
+    border-radius: 8rpx;
+}
+
+.status-badge.verified {
+    background: rgba(251, 191, 36, 0.3);
+    color: #fbbf24;
+}
+
+.status-badge.pending {
+    background: rgba(59, 130, 246, 0.3);
+    color: #93c5fd;
+}
+
+.status-badge.unverified {
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 统计信息 */
+.stats-bar {
+    background: #ffffff;
+    border-radius: 24rpx;
+    padding: 20rpx 24rpx;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.12), 0 2rpx 8rpx rgba(0, 0, 0, 0.08);
+    position: absolute;
+    left: 50%;
+    bottom: -60rpx;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: calc(100% - 96rpx);
+    max-width: 680rpx;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.stats-bar .stat-item {
+    flex: 1;
+    min-width: 0;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8rpx;
+}
+
+.stat-value {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.stat-label {
+    font-size: 22rpx;
+    color: #6b7280;
+}
+
+/* 内容区域 */
+.content-section {
+    margin-top: 100rpx;
+    padding: 0 32rpx;
+}
+
+.publish-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 30rpx;
+    padding: 14rpx 22rpx;
+    border-radius: 20rpx;
+    box-shadow: 0 6rpx 12rpx rgba(249, 115, 22, 0.25);
+    margin-bottom: 24rpx;
+    border: none;
+}
+
+.publish-btn:active {
+    transform: scale(0.95);
+}
+
+/* 菜单部分 */
+.menu-section {
+    margin-bottom: 32rpx;
+}
+
+.section-title {
+    display: block;
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #1f2937;
+    padding: 0 32rpx 16rpx;
+}
+
+.menu-list {
+    background: #ffffff;
+    border-radius: 24rpx;
+    overflow: hidden;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 16rpx 24rpx;
+    border-bottom: 2rpx solid #f3f4f6;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-icon {
+    width: 56rpx;
+    height: 56rpx;
+    border-radius: 12rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28rpx;
+    margin-right: 16rpx;
+}
+
+.menu-label {
+    flex: 1;
+    font-size: 30rpx;
+    color: #374151;
+    font-weight: 500;
+}
+
+.menu-badge {
+    font-size: 24rpx;
+    background: #f3f4f6;
+    color: #6b7280;
+    padding: 4rpx 12rpx;
+    border-radius: 12rpx;
+    margin-right: 8rpx;
+}
+
+.menu-arrow {
+    font-size: 48rpx;
+    color: #9ca3af;
+}
+
+/* 认证状态 */
+.auth-status-wrapper {
+    margin-right: 8rpx;
+}
+
+.auth-status {
+    font-size: 24rpx;
+    padding: 4rpx 12rpx;
+    border-radius: 8rpx;
+    font-weight: 500;
+}
+
+.auth-status.verified {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.auth-status.pending {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.auth-status.rejected {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.auth-status.unverified {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+/* 退出登录 */
+.logout-btn {
+    width: 100%;
+    height: 80rpx;
+    background: #16a34a;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 32rpx;
+    padding: 0;
+    line-height: 80rpx;
+    border-radius: 32rpx;
+    box-shadow: 0 8rpx 16rpx rgba(22, 163, 74, 0.2);
+    border: none;
+    margin-top: 24rpx;
+}
+
+.logout-btn:active {
+    background: #fef2f2;
+}
+
+/* 版本信息 */
+.version-text {
+    display: block;
+    text-align: center;
+    font-size: 24rpx;
+    color: #d1d5db;
+    margin-top: 64rpx;
+}
+

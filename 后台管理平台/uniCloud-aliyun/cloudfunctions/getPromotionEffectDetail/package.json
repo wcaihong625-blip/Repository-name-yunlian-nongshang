@@ -1,0 +1,15 @@
+{
+  "name": "getPromotionEffectDetail",
+  "version": "1.0.0",
+  "description": "推广效果详情：订单维度 + 主表实时浏览量",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-view-count": "file:../common/nxt-view-count"
+  },
+  "cloudfunction-config": {
+    "memorySize": 256,
+    "runtime": "Nodejs18",
+    "timeout": 60
+  }
+}

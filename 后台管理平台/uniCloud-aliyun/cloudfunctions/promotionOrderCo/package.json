@@ -1,0 +1,18 @@
+{
+  "name": "promotionOrderCo",
+  "version": "1.0.0",
+  "description": "推广订单（create / activate / expire / getPayStatus / markPaidAndActivate 服务端落账）",
+  "main": "index.obj.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-content-promotion-sync": "file:../common/nxt-content-promotion-sync",
+    "nxt-member-upgrade-enterprise": "file:../common/nxt-member-upgrade-enterprise",
+    "nxt-membership-promotion-config": "file:../common/nxt-membership-promotion-config",
+    "nxt-view-count": "file:../common/nxt-view-count"
+  },
+  "cloudfunction-config": {
+    "memorySize": 256,
+    "runtime": "Nodejs18",
+    "timeout": 60
+  }
+}

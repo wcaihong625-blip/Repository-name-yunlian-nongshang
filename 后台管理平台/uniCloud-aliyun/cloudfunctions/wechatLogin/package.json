@@ -1,0 +1,12 @@
+{
+  "name": "wechatLogin",
+  "version": "1.0.0",
+  "description": "微信一键登录云函数",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

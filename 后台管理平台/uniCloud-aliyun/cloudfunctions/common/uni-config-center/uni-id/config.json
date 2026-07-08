@@ -1,0 +1,77 @@
+{
+  "passwordSecret": "NXT_2026_VERY_STRONG_JWT_SECRET_STRING_XYZ987",
+  "tokenSecret": "NXT_2026_VERY_STRONG_JWT_SECRET_STRING_XYZ987",
+  "tokenExpiresIn": 604800,
+  "tokenExpiresThreshold": 3600,
+  "passwordErrorLimit": 6,
+  "bindTokenToDevice": false,
+  "passwordErrorRetryTime": 3600,
+  "autoSetInviteCode": false,
+  "forceInviteCode": false,
+  "app": {
+    "tokenExpiresIn": 2592000,
+    "tokenExpiresThreshold": 864000,
+    "oauth": {
+      "weixin": {
+        "appid": "",
+        "appsecret": ""
+      },
+      "apple": {
+        "bundleId": ""
+      }
+    }
+  },
+  "web": {
+    "tokenExpiresIn": 7200,
+    "tokenExpiresThreshold": 3600,
+    "oauth": {
+      "weixin-h5": {
+        "appid": "",
+        "appsecret": ""
+      },
+      "weixin-web": {
+        "appid": "",
+        "appsecret": ""
+      }
+    }
+  },
+  "mp-weixin": {
+    "tokenExpiresIn": 259200,
+    "tokenExpiresThreshold": 86400,
+    "oauth": {
+      "weixin": {
+        "appid": "wxd99b4bc1e6c61afd",
+        "appsecret": "d8177a40ef59d257c496e7dc61a25511"
+      }
+    }
+  },
+  "mp-alipay": {
+    "tokenExpiresIn": 259200,
+    "tokenExpiresThreshold": 86400,
+    "oauth": {
+      "alipay": {
+        "appid": "",
+        "privateKey": ""
+      }
+    }
+  },
+  "service": {
+    "sms": {
+      "name": "",
+      "codeExpiresIn": 300,
+      "smsKey": "",
+      "smsSecret": "",
+      "scene": {
+        "bind-mobile-by-sms": {
+          "templateId": "",
+          "codeExpiresIn": 240
+        }
+      }
+    },
+    "univerify": {
+      "appid": "",
+      "apiKey": "",
+      "apiSecret": ""
+    }
+  }
+}

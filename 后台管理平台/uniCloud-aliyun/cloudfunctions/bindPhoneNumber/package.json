@@ -1,0 +1,12 @@
+{
+  "name": "bindPhoneNumber",
+  "version": "1.0.0",
+  "description": "绑定手机号云函数",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

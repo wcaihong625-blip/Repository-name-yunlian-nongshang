@@ -1,0 +1,56 @@
+{
+  "bsonType": "object",
+  "description": "消息通知模板配置表",
+  "required": [
+    "name",
+    "code",
+    "channel",
+    "content"
+  ],
+  "properties": {
+    "_id": {
+      "description": "主键ID",
+      "bsonType": "string"
+    },
+    "name": {
+      "description": "模板名称（后台显示用）",
+      "bsonType": "string"
+    },
+    "code": {
+      "description": "模板编码（业务调用标识，如 OPEN_SHOP_SUCCESS）",
+      "bsonType": "string"
+    },
+    "channel": {
+      "description": "通知渠道：app/sms/wechat 等",
+      "bsonType": "string"
+    },
+    "title": {
+      "description": "消息标题（可选）",
+      "bsonType": "string"
+    },
+    "content": {
+      "description": "模板内容，支持占位符，如：亲爱的{{username}}，您的开店申请已通过。",
+      "bsonType": "string"
+    },
+    "enabled": {
+      "description": "是否启用",
+      "bsonType": "bool"
+    },
+    "remark": {
+      "description": "备注说明，占位符说明等",
+      "bsonType": "string"
+    },
+    "create_time": {
+      "description": "创建时间（时间戳）",
+      "bsonType": "long"
+    },
+    "update_time": {
+      "description": "最后更新时间（时间戳）",
+      "bsonType": "long"
+    }
+  }
+}
+
+
+
+

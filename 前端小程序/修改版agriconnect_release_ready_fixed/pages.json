@@ -1,0 +1,360 @@
+{
+	"pages": [
+		{
+			"path": "pages/procurement/procurement",
+			"style": {
+				"navigationBarTitleText": "采购",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark",
+				"backgroundColor": "#16a34a"
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom",
+				"disableScroll": true
+			}
+		},
+		{
+			"path": "pages/procurement-detail/procurement-detail",
+			"style": {
+				"navigationBarTitleText": "采购详情",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f3f4f6"
+			}
+		},
+		{
+			"path": "pages/supply/supply",
+			"style": {
+				"navigationBarTitleText": "供应",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark",
+				"backgroundColor": "#16a34a"
+			}
+		},
+		{
+			"path": "pages/open-shop/open-shop",
+			"style": {
+				"navigationBarTitleText": "会员中心",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5"
+			}
+		},
+		{
+			"path": "pages/my-member/my-member",
+			"style": {
+				"navigationBarTitleText": "我的会员",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5"
+			}
+		},
+		{
+			"path": "pages/promotion-center/promotion-center",
+			"style": {
+				"navigationBarTitleText": "推广服务",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5"
+			}
+		},
+		{
+			"path": "pages/promotion-effect/promotion-effect",
+			"style": {
+				"navigationBarTitleText": "推广效果",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f0fdf4",
+				"enablePullDownRefresh": true,
+				"backgroundTextStyle": "dark"
+			}
+		},
+		{
+			"path": "pages/market-trends/market-trends",
+			"style": {
+				"navigationBarTitleText": "今日行情",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true,
+				"backgroundColor": "#16a34a",
+				"onReachBottomDistance": 120
+			}
+		},
+		{
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/profile/complete",
+			"style": {
+				"navigationBarTitleText": "完善资料",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/supply-detail/supply-detail",
+			"style": {
+				"navigationBarTitleText": "商品详情",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/agreement/agreement",
+			"style": {
+				"navigationBarTitleText": "用户协议"
+			}
+		},
+		{
+			"path": "pages/privacy/privacy",
+			"style": {
+				"navigationBarTitleText": "隐私政策"
+			}
+		},
+		{
+			"path": "pages/merchant-agreement/merchant-agreement",
+			"style": {
+				"navigationBarTitleText": "会员服务协议"
+			}
+		},
+		{
+			"path": "pages/realname-agreement/realname-agreement",
+			"style": {
+				"navigationBarTitleText": "实名认证服务协议"
+			}
+		},
+		{
+			"path": "pages/enterprise-agreement/enterprise-agreement",
+			"style": {
+				"navigationBarTitleText": "企业认证服务协议"
+			}
+		},
+		{
+			"path": "pages/system-settings/system-settings",
+			"style": {
+				"navigationBarTitleText": "系统设置"
+			}
+		},
+		{
+			"path": "pages/publish-info/publish-info",
+			"style": {
+				"navigationBarTitleText": "发布信息",
+				"navigationStyle": "custom",
+				"backgroundColor": "#16a34a"
+			}
+		},
+		{
+			"path": "pages/my-supply/my-supply",
+			"style": {
+				"navigationBarTitleText": "我的供应",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/edit-supply/edit-supply",
+			"style": {
+				"navigationBarTitleText": "编辑供应",
+				"navigationStyle": "custom",
+				"backgroundColor": "#16a34a"
+			}
+		},
+		{
+			"path": "pages/my-procurement/my-procurement",
+			"style": {
+				"navigationBarTitleText": "我的采购",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/edit-procurement/edit-procurement",
+			"style": {
+				"navigationBarTitleText": "编辑采购",
+				"navigationStyle": "custom",
+				"backgroundColor": "#16a34a"
+			}
+		},
+		{
+			"path": "pages/member-orders/member-orders",
+			"style": {
+				"navigationBarTitleText": "会员订单",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"enablePullDownRefresh": true,
+				"backgroundColor": "#f5f5f5",
+				"backgroundTextStyle": "light"
+			}
+		},
+		{
+			"path": "pages/user-profile/user-profile",
+			"style": {
+				"navigationBarTitleText": "个人主页",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/follows/follows",
+			"style": {
+				"navigationBarTitleText": "关注管理",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/customer-phonebook/customer-phonebook",
+			"style": {
+				"navigationBarTitleText": "客户电话簿",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/real-name-auth/real-name-auth",
+			"style": {
+				"navigationBarTitleText": "实名认证",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5",
+				"backgroundTextStyle": "light"
+			}
+		},
+		{
+			"path": "pages/enterprise-auth/enterprise-auth",
+			"style": {
+				"navigationBarTitleText": "企业认证",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5",
+				"backgroundTextStyle": "light"
+			}
+		},
+		{
+			"path": "pages/rebuild-search-index/rebuild-search-index",
+			"style": {
+				"navigationBarTitleText": "重建搜索索引",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5"
+			}
+		},
+		{
+			"path": "pages/sales-center/dashboard",
+			"style": {
+				"navigationBarTitleText": "销售中心",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5"
+			}
+		},
+		{
+			"path": "pages/sales-center/promotion",
+			"style": {
+				"navigationBarTitleText": "我的推广",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5"
+			}
+		},
+		{
+			"path": "pages/sales-center/customers",
+			"style": {
+				"navigationBarTitleText": "我的客户",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/sales-center/commission",
+			"style": {
+				"navigationBarTitleText": "我的提成",
+				"navigationBarBackgroundColor": "#16a34a",
+				"navigationBarTextStyle": "white",
+				"backgroundColor": "#f5f5f5",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "uni_modules/uni-pay/pages/success/success",
+			"style": {
+				"backgroundColor": "#F8F8F8",
+				"navigationBarTitleText": "支付成功"
+			}
+		},
+		{
+			"path": "uni_modules/uni-pay/pages/ad-interactive-webview/ad-interactive-webview",
+			"style": {
+				"backgroundColor": "#F8F8F8",
+				"navigationBarTitleText": "ad"
+			}
+		},
+		{
+			"path": "uni_modules/uni-pay/pages/pay-desk/pay-desk",
+			"style": {
+				"backgroundColor": "#F8F8F8",
+				"navigationBarTitleText": "收银台"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#9ca3af",
+		"selectedColor": "#16a34a",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "black",
+		"list": [
+			{
+				"pagePath": "pages/procurement/procurement",
+				"text": "采购",
+				"iconPath": "static/images/tabbar/procurement.png",
+				"selectedIconPath": "static/images/tabbar/procurement-active.png"
+			},
+			{
+				"pagePath": "pages/supply/supply",
+				"text": "供应",
+				"iconPath": "static/images/tabbar/supply.png",
+				"selectedIconPath": "static/images/tabbar/supply-active.png"
+			},
+			{
+				"pagePath": "pages/market-trends/market-trends",
+				"text": "行情",
+				"iconPath": "static/images/tabbar/market.png",
+				"selectedIconPath": "static/images/tabbar/market-active.png"
+			},
+			{
+				"pagePath": "pages/profile/profile",
+				"text": "我的",
+				"iconPath": "static/images/tabbar/profile.png",
+				"selectedIconPath": "static/images/tabbar/profile-active.png"
+			}
+		]
+	},
+	"networkTimeout": {
+		"request": 10000,
+		"downloadFile": 10000
+	},
+	"debug": false,
+	"style": "v2",
+	"sitemapLocation": "sitemap.json",
+	"globalStyle": {
+		"navigationBarTitleText": "云链农商",
+		"navigationBarBackgroundColor": "#16a34a",
+		"navigationBarTextStyle": "white",
+		"backgroundColor": "#f5f5f5",
+		"backgroundTextStyle": "light",
+		"enablePullDownRefresh": false
+	},
+	"subPackages": []
+}

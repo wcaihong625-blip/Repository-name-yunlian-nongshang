@@ -1,0 +1,46 @@
+{
+  "bsonType": "object",
+  "required": ["user_id", "enterprise_name", "credit_code", "status"],
+  "permission": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": { "description": "主键" },
+    "user_id": { "bsonType": "string", "description": "用户ID（uni-id-users._id）" },
+    "nickname": { "bsonType": "string", "description": "提交时用户昵称快照" },
+    "mobile": { "bsonType": "string", "description": "提交时用户手机号快照" },
+    "enterprise_name": { "bsonType": "string", "description": "企业名称" },
+    "credit_code": { "bsonType": "string", "description": "统一社会信用代码" },
+    "contact_name": { "bsonType": "string", "description": "联系人姓名" },
+    "contact_mobile": { "bsonType": "string", "description": "联系手机号" },
+    "province": { "bsonType": "string", "description": "省" },
+    "city": { "bsonType": "string", "description": "市" },
+    "district": { "bsonType": "string", "description": "区/县" },
+    "address": { "bsonType": "string", "description": "详细地址" },
+    "legal_person": { "bsonType": "string", "description": "法定代表人" },
+    "company_type": { "bsonType": "string", "description": "企业类型" },
+    "establish_date": { "bsonType": "string", "description": "成立日期" },
+    "valid_period": { "bsonType": "string", "description": "营业期限/有效期" },
+    "business_scope": { "bsonType": "string", "description": "经营范围" },
+    "license_number": { "bsonType": "string", "description": "证件编号" },
+    "business_license_url": { "bsonType": "string", "description": "营业执照照片URL" },
+    "remark": { "bsonType": "string", "description": "备注说明" },
+    "ocr_provider": { "bsonType": "string", "description": "OCR服务提供方" },
+    "ocr_doc_type": { "bsonType": "string", "description": "OCR证件类型" },
+    "ocr_snapshot": { "bsonType": "object", "description": "OCR识别结果快照" },
+    "status": {
+      "bsonType": "string",
+      "description": "pending | approved | rejected",
+      "enum": ["pending", "approved", "rejected"]
+    },
+    "reject_reason": { "bsonType": "string", "description": "驳回原因" },
+    "admin_remark": { "bsonType": "string", "description": "管理员备注" },
+    "reviewed_by": { "bsonType": "string", "description": "审核人用户ID" },
+    "reviewed_at": { "bsonType": "timestamp", "description": "审核时间" },
+    "created_at": { "bsonType": "timestamp", "description": "创建时间" },
+    "updated_at": { "bsonType": "timestamp", "description": "更新时间" }
+  }
+}

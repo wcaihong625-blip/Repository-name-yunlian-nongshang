@@ -1,0 +1,19 @@
+{
+  "name": "memberCouponCo",
+  "version": "1.0.0",
+  "description": "会员优惠码/兑换码（合并原 generate/list/useLog/validate/setStatus/redeemVipCode 云函数）",
+  "main": "index.obj.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-member-coupon": "file:../common/nxt-member-coupon",
+    "nxt-membership-promotion-config": "file:../common/nxt-membership-promotion-config"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  },
+  "cloudfunction-config": {
+    "memorySize": 256,
+    "runtime": "Nodejs18",
+    "timeout": 60
+  }
+}

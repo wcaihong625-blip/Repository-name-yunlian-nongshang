@@ -1,0 +1,40 @@
+{
+  "bsonType": "object",
+  "required": ["code_id", "code", "order_id", "user_id", "status"],
+  "permission": {
+    "read": "true",
+    "create": "false",
+    "update": "'admin' in auth.role",
+    "delete": "false"
+  },
+  "properties": {
+    "_id": { "description": "ID" },
+    "code_id": { "bsonType": "string", "title": "优惠码文档ID" },
+    "code": { "bsonType": "string", "title": "优惠码" },
+    "batch_id": { "bsonType": "string", "title": "批次ID" },
+    "batch_name": { "bsonType": "string", "title": "批次名称" },
+    "order_id": { "bsonType": "string", "title": "会员订单ID" },
+    "order_no": { "bsonType": "string", "title": "订单号" },
+    "user_id": { "bsonType": "string", "title": "用户ID" },
+    "customer_id": { "bsonType": "string", "title": "客户ID" },
+    "mobile": { "bsonType": "string", "title": "手机号" },
+    "used_at": { "bsonType": "timestamp", "title": "核销时间" },
+    "status": {
+      "bsonType": "string",
+      "title": "状态",
+      "enum": [
+        { "value": "used", "text": "已核销" },
+        { "value": "rolled_back", "text": "已回滚（预留）" }
+      ],
+      "defaultValue": "used"
+    },
+    "pay_amount_before": { "bsonType": "double", "title": "优惠前金额" },
+    "discount_amount": { "bsonType": "double", "title": "优惠金额" },
+    "pay_amount_after": { "bsonType": "double", "title": "优惠后实付" },
+    "member_type": { "bsonType": "string", "title": "会员类型" },
+    "plan_type": { "bsonType": "string", "title": "套餐周期" },
+    "order_scene": { "bsonType": "string", "title": "订单场景" },
+    "order_type": { "bsonType": "int", "title": "订单类型" },
+    "created_at": { "bsonType": "timestamp", "title": "创建时间", "forceDefaultValue": { "$env": "now" } }
+  }
+}

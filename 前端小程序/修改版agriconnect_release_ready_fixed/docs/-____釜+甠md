@@ -1,0 +1,262 @@
+# 代码冗余分析报告
+
+## 概述
+经过对整个项目的全面审查，发现了多个代码冗余问题。这些问题主要集中在工具函数、页面逻辑、错误处理和表单验证等方面。
+
+---
+
+## 1. 重复的导出方式
+
+### 问题描述
+在 `utils/api.js` 和 `utils/util.js` 中，同时使用了 ES6 导出（export）和 CommonJS 导出（module.exports），这是冗余的。
+
+### 影响文件
+- `utils/api.js` (第612-704行)
+- `utils/util.js` (第144-160行)
+
+### 建议
+- 统一使用 ES6 导出方式（推荐）
+- 或者统一使用 CommonJS 导出方式
+- 删除重复的导出代码
+
+---
+
+## 2. 重复的时间格式化函数
+
+### 问题描述
+时间格式化函数在多个地方重复定义，而不是统一使用 `utils/util.js` 中的工具函数。
+
+### 具体位置
+1. **utils/util.js** - 已有 `formatTime` 和 `formatDate` 函数
+2. **pages/my-supply/my-supply.vue** - 第241-246行，自定义 `formatTime` 方法
+3. **pages/my-procurement/my-procurement.vue** - 第235-240行，自定义 `formatTime` 方法
+4. **pages/user-profile/user-profile.vue** - 第777-795行，自定义 `parseTimeToMinutes` 方法
+
+### 建议
+- 统一使用 `utils/util.js` 中的 `formatTime` 和 `formatDate` 函数
+- 删除页面中重复的时间格式化方法
+- 如果 `parseTimeToMinutes` 有特殊用途，可以添加到 `utils/util.js` 中
+
+---
+
+## 3. 重复的状态颜色函数
+
+### 问题描述
+状态颜色获取函数在多个页面中重复定义。
+
+### 具体位置
+1. **pages/my-supply/my-supply.vue** - 第219-225行，`getStatusColor` 方法
+2. **pages/my-procurement/my-procurement.vue** - 第213-219行，`getStatusColor` 方法
+3. **pages/member-orders/member-orders.vue** - 可能也有类似逻辑
+
+### 建议
+- 在 `utils/util.js` 或 `utils/constants.js` 中创建统一的状态颜色映射
+- 创建一个通用的 `getStatusColor` 函数
+- 所有页面统一使用该函数
+
+---
+
+## 4. 重复的列表加载逻辑
+
+### 问题描述
+`pages/my-supply/my-supply.vue` 和 `pages/my-procurement/my-procurement.vue` 有几乎完全相同的列表加载、分页、刷新逻辑。
+
+### 重复的代码模式
+- 分页参数管理（page, pageSize, hasMore）
+- 下拉刷新逻辑（onPullDownRefresh）
+- 上拉加载更多逻辑（onReachBottom）
+- 列表加载方法（loadSupplyList / loadProcurementList）
+- 数据格式化逻辑
+- 错误处理模式
+
+### 建议
+- 创建一个通用的列表管理 Mixin 或 Composable
+- 或者创建一个基础组件用于列表展示
+- 将公共逻辑提取到 `utils/` 目录下的工具函数中
+
+---
+
+## 5. 重复的统计数据计算
+
+### 问题描述
+`calculateStats` 方法在多个页面中重复定义，逻辑几乎完全相同。
+
+### 具体位置
+1. **pages/my-supply/my-supply.vue** - 第249-269行
+2. **pages/my-procurement/my-procurement.vue** - 第243-263行
+
+### 建议
+- 在 `utils/util.js` 中创建通用的统计计算函数
+- 或者作为列表管理 Mixin 的一部分
+
+---
+
+## 6. 重复的错误处理模式
+
+### 问题描述
+多个页面中都有类似的错误处理代码，特别是登录和注册页面。
+
+### 具体位置
+1. **pages/login/login.vue** - 第283-325行，详细的错误处理逻辑
+2. **pages/register/register.vue** - 第557-577行，类似的错误处理
+3. **utils/api.js** - `callCloudFunction` 中也有错误处理（第51-75行）
+
+### 建议
+- 统一错误处理逻辑到 `utils/api.js` 的 `callCloudFunction` 中
+- 或者创建统一的错误处理工具函数
+- 减少页面中的重复错误处理代码
+
+---
+
+## 7. 重复的表单验证逻辑
+
+### 问题描述
+供应和采购表单的验证逻辑高度相似，存在大量重复代码。
+
+### 具体位置
+1. **pages/publish-info/publish-info.vue** - 第428-504行
+   - `validateProcurementForm` (第429-461行)
+   - `validateSupplyForm` (第464-504行)
+2. **pages/edit-supply/edit-supply.vue** - 第300-341行，`validateSupplyForm`
+3. **pages/edit-procurement/edit-procurement.vue** - 第250-282行，`validateProcurementForm`
+
+### 重复的验证规则
+- 标题验证
+- 品类选择验证
+- 数量验证（包括数字格式）
+- 单价验证（包括数字格式）
+- 地址/位置验证
+- 单位选择验证
+
+### 建议
+- 创建统一的表单验证工具函数（`utils/validators.js`）
+- 定义验证规则配置对象
+- 使用统一的验证函数处理所有表单验证
+
+---
+
+## 8. 未充分利用的工具函数
+
+### 问题描述
+项目中定义了 `showError` 和 `showSuccess` 工具函数（`utils/util.js`），但很多地方仍直接使用 `uni.showToast`。
+
+### 统计数据
+- 直接使用 `uni.showToast` 的地方：130+ 处
+- 使用 `uni.showLoading` 的地方：多处
+- 使用 `uni.hideLoading` 的地方：多处
+
+### 建议
+- 统一使用 `utils/util.js` 中的 `showError`、`showSuccess`、`showLoading`、`hideLoading`
+- 替换所有直接调用 `uni.showToast` 的地方
+- 这样可以统一提示样式和行为
+
+---
+
+## 9. 重复的 API 函数
+
+### 问题描述
+`getUserInfo` 和 `getUserProfile` 函数功能完全相同，`getUserProfile` 只是调用了 `getUserInfo`。
+
+### 具体位置
+**utils/api.js** - 第436-445行
+```javascript
+function getUserInfo(userId) {
+    return callCloudFunction('getUserInfo', {
+        user_id: userId
+    });
+}
+
+function getUserProfile(userId) {
+    return getUserInfo(userId);
+}
+```
+
+### 建议
+- 保留一个函数即可（建议保留 `getUserProfile`，因为语义更清晰）
+- 或者合并为一个函数，使用别名导出
+
+---
+
+## 10. 重复的图片上传逻辑
+
+### 问题描述
+图片上传逻辑可能在多个页面中重复实现。
+
+### 建议
+- 检查是否有重复的图片上传代码
+- 统一使用 `utils/api.js` 中的 `uploadImage` 函数
+- 或者创建图片上传组件
+
+---
+
+## 11. 重复的筛选和排序逻辑
+
+### 问题描述
+`pages/my-supply/my-supply.vue` 和 `pages/my-procurement/my-procurement.vue` 中的筛选逻辑（`filterItems`）几乎相同。
+
+### 具体位置
+1. **pages/my-supply/my-supply.vue** - 第281-293行
+2. **pages/my-procurement/my-procurement.vue** - 第275-287行
+
+### 建议
+- 提取为通用的筛选工具函数
+- 或者作为列表管理 Mixin 的一部分
+
+---
+
+## 12. 重复的 getRandomTime 方法
+
+### 问题描述
+`getRandomTime` 方法在多个页面中定义但可能未被使用。
+
+### 具体位置
+1. **pages/my-supply/my-supply.vue** - 第227-239行
+2. **pages/my-procurement/my-procurement.vue** - 第221-233行
+
+### 建议
+- 检查这些方法是否被使用
+- 如果未使用，删除它们
+- 如果使用，考虑移到工具函数中
+
+---
+
+## 优化建议总结
+
+### 高优先级
+1. ✅ 统一使用工具函数（showError, showSuccess, formatTime 等）
+2. ✅ 提取重复的列表管理逻辑为 Mixin 或 Composable
+3. ✅ 统一表单验证逻辑
+
+### 中优先级
+4. ✅ 合并重复的 API 函数
+5. ✅ 统一错误处理逻辑
+6. ✅ 提取状态颜色映射
+
+### 低优先级
+7. ✅ 统一导出方式（ES6 或 CommonJS）
+8. ✅ 清理未使用的代码（如 getRandomTime）
+
+---
+
+## 预期收益
+
+1. **代码可维护性提升**：减少重复代码，修改时只需改一处
+2. **代码体积减小**：删除冗余代码可减少打包体积
+3. **开发效率提升**：统一的工具函数和模式，开发更快
+4. **Bug 修复更容易**：修复一处即可解决所有相关问题
+5. **代码一致性**：统一的代码风格和模式
+
+---
+
+## 实施步骤建议
+
+1. **第一阶段**：统一使用现有工具函数（showError, formatTime 等）
+2. **第二阶段**：提取列表管理逻辑为 Mixin
+3. **第三阶段**：统一表单验证逻辑
+4. **第四阶段**：清理未使用的代码和重复的导出
+
+---
+
+*报告生成时间：2024年*
+*分析工具：代码审查*
+

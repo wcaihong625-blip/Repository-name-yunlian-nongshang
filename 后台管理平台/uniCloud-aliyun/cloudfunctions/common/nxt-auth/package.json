@@ -1,0 +1,10 @@
+{
+  "name": "nxt-auth",
+  "version": "1.1.0",
+  "description": "NXT 统一公共鉴权模块 - JWT 签发校验 / 微信配置读取 / 管理员权限校验",
+  "main": "index.js",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "uni-config-center": "file:../uni-config-center"
+  }
+}

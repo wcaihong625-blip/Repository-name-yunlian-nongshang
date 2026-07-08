@@ -1,0 +1,13 @@
+[
+  {
+    "IndexName": "target_status_created",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [
+        { "Name": "target_user_id", "Direction": "1" },
+        { "Name": "status", "Direction": "1" },
+        { "Name": "created_at", "Direction": "-1" }
+      ],
+      "MgoIsUnique": false
+    }
+  }
+]

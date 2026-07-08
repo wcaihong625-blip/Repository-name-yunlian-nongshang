@@ -1,0 +1,10 @@
+{
+  "name": "getChannelReconcileSummary",
+  "version": "1.0.0",
+  "description": "渠道与邀请码归因核对（按月聚合，只读）",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-commission-month": "file:../common/nxt-commission-month"
+  }
+}

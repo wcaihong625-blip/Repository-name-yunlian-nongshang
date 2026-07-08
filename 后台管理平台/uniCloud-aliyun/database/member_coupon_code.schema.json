@@ -1,0 +1,92 @@
+{
+  "bsonType": "object",
+  "required": ["code", "coupon_type", "scope", "status", "start_time", "end_time"],
+  "permission": {
+    "read": "true",
+    "create": "'admin' in auth.role",
+    "update": "'admin' in auth.role",
+    "delete": "false"
+  },
+  "properties": {
+    "_id": { "description": "ID" },
+    "batch_id": { "bsonType": "string", "title": "批次ID", "description": "同批生成的唯一批次标识" },
+    "batch_name": { "bsonType": "string", "title": "批次名称" },
+    "code": { "bsonType": "string", "title": "优惠码", "trim": "both", "description": "全局唯一，建议大写" },
+    "coupon_type": {
+      "bsonType": "string",
+      "title": "类型",
+      "enum": [
+        { "value": "amount", "text": "固定金额抵扣" },
+        { "value": "discount", "text": "折扣" },
+        { "value": "free", "text": "0元开通" }
+      ]
+    },
+    "discount_value": {
+      "bsonType": "double",
+      "title": "抵扣值",
+      "description": "amount=减多少元；discount=支付比例如0.9表示九折；free可忽略"
+    },
+    "discount_amount": {
+      "bsonType": "double",
+      "title": "固定金额减免",
+      "description": "amount 类型使用，单位元；兼容旧 discount_value"
+    },
+    "discount_rate": {
+      "bsonType": "double",
+      "title": "折扣比例",
+      "description": "discount 类型使用，0.9 表示 9 折；兼容旧 discount_value"
+    },
+    "scope": {
+      "bsonType": "string",
+      "title": "适用范围",
+      "enum": [
+        { "value": "first_open", "text": "仅首开" },
+        { "value": "renewal", "text": "仅续费" },
+        { "value": "all", "text": "首开+续费" }
+      ]
+    },
+    "use_scene": {
+      "bsonType": "string",
+      "title": "适用场景",
+      "description": "all/first_open/renewal；缺省兼容 scope",
+      "enum": [
+        { "value": "all", "text": "首开+续费" },
+        { "value": "first_open", "text": "仅首开" },
+        { "value": "renewal", "text": "仅续费" }
+      ]
+    },
+    "usage_scope": { "bsonType": "string", "title": "适用场景兼容字段" },
+    "member_type_scope": { "bsonType": "string", "title": "适用会员类型", "description": "all/personal/enterprise 或逗号分隔" },
+    "apply_member_types": {
+      "bsonType": "array",
+      "title": "适用会员类型数组",
+      "arrayType": "string",
+      "description": "['all']、['personal']、['enterprise']、['personal','enterprise']"
+    },
+    "plan_type_scope": { "bsonType": "string", "title": "适用套餐周期", "description": "all/month/quarter/year 或逗号分隔" },
+    "apply_plan_types": {
+      "bsonType": "array",
+      "title": "适用套餐周期数组",
+      "arrayType": "string",
+      "description": "['all']、['month']、['quarter']、['year'] 或多选"
+    },
+    "status": {
+      "bsonType": "string",
+      "title": "状态",
+      "enum": [
+        { "value": "enabled", "text": "启用" },
+        { "value": "disabled", "text": "停用" }
+      ],
+      "defaultValue": "enabled"
+    },
+    "start_time": { "bsonType": "timestamp", "title": "生效开始" },
+    "end_time": { "bsonType": "timestamp", "title": "生效结束" },
+    "max_use_count": { "bsonType": "int", "title": "总可用次数", "defaultValue": 1 },
+    "used_count": { "bsonType": "int", "title": "已用次数", "defaultValue": 0 },
+    "max_use_per_user": { "bsonType": "int", "title": "单用户可用次数", "defaultValue": 1 },
+    "remark": { "bsonType": "string", "title": "备注" },
+    "created_at": { "bsonType": "timestamp", "title": "创建时间", "forceDefaultValue": { "$env": "now" } },
+    "created_by_uid": { "bsonType": "string", "title": "创建人UID" },
+    "created_by_name": { "bsonType": "string", "title": "创建人姓名" }
+  }
+}

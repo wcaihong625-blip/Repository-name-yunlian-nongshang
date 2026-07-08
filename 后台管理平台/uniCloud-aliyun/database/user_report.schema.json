@@ -1,0 +1,47 @@
+{
+  "bsonType": "object",
+  "required": ["reported_user_id", "reporter_user_id", "report_reason_code", "status", "created_at"],
+  "permission": {
+    "read": "'admin' in auth.role",
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": { "description": "主键" },
+    "reported_user_id": { "bsonType": "string", "title": "被举报用户ID" },
+    "reported_user_name": { "bsonType": "string", "title": "被举报用户昵称" },
+    "reporter_user_id": { "bsonType": "string", "title": "举报人ID" },
+    "reporter_user_name": { "bsonType": "string", "title": "举报人昵称" },
+    "report_reason_code": { "bsonType": "string", "title": "原因编码" },
+    "report_reason": { "bsonType": "string", "title": "原因文案" },
+    "report_description": { "bsonType": "string", "title": "补充说明" },
+    "page_source": { "bsonType": "string", "title": "来源页面" },
+    "related_content_id": { "bsonType": "string", "title": "关联内容ID" },
+    "related_content_type": { "bsonType": "string", "title": "关联类型" },
+    "evidence_urls": {
+      "bsonType": "array",
+      "title": "证据图URL",
+      "items": { "bsonType": "string" }
+    },
+    "status": {
+      "bsonType": "string",
+      "title": "处理状态",
+      "enum": [
+        { "value": "pending", "text": "待处理" },
+        { "value": "processing", "text": "处理中" },
+        { "value": "resolved_valid", "text": "属实" },
+        { "value": "resolved_invalid", "text": "不属实" },
+        { "value": "closed", "text": "已关闭" }
+      ],
+      "defaultValue": "pending"
+    },
+    "admin_handle_result": { "bsonType": "string", "title": "处理结果摘要" },
+    "admin_handle_note": { "bsonType": "string", "title": "管理员备注" },
+    "handled_by": { "bsonType": "string", "title": "处理人UID" },
+    "handled_by_name": { "bsonType": "string", "title": "处理人姓名" },
+    "handled_at": { "bsonType": "timestamp", "title": "处理时间" },
+    "created_at": { "bsonType": "timestamp", "title": "创建时间", "forceDefaultValue": { "$env": "now" } },
+    "updated_at": { "bsonType": "timestamp", "title": "更新时间", "forceDefaultValue": { "$env": "now" } }
+  }
+}

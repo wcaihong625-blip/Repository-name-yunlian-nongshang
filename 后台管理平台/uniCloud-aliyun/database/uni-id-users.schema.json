@@ -1,0 +1,141 @@
+{
+  "bsonType": "object",
+  "required": [
+    "username",
+    "password",
+    "status",
+    "created_date"
+  ],
+  "properties": {
+    "username": {
+      "bsonType": "string",
+      "description": "用户名，唯一，用于用户名登录"
+    },
+    "mobile": {
+      "bsonType": "string",
+      "description": "手机号（中国大陆），唯一，用于手机号登录"
+    },
+    "password": {
+      "bsonType": "string",
+      "description": "使用 bcrypt 加密后的密码摘要，绝不存明文"
+    },
+    "wx_openid": {
+      "bsonType": "string",
+      "description": "微信 OpenID，唯一，用于微信一键登录"
+    },
+    "nickname": {
+      "bsonType": "string",
+      "description": "用户昵称"
+    },
+    "avatar": {
+      "bsonType": "string",
+      "description": "用户头像 URL"
+    },
+    "status": {
+      "bsonType": "int",
+      "description": "用户状态：0-正常，1-禁用等"
+    },
+    "created_date": {
+      "bsonType": "timestamp",
+      "description": "用户创建时间"
+    },
+    "last_login_date": {
+      "bsonType": "timestamp",
+      "description": "最后登录时间"
+    },
+    "profile_views": {
+      "bsonType": "int",
+      "description": "主页被浏览次数",
+      "default": 0
+    },
+    "supply_count": {
+      "bsonType": "int",
+      "description": "供应信息数量",
+      "default": 0
+    },
+    "procurement_count": {
+      "bsonType": "int",
+      "description": "采购信息数量",
+      "default": 0
+    },
+    "is_vip": {
+      "bsonType": "bool",
+      "description": "是否会员",
+      "default": false
+    },
+    "vip_expire_time": {
+      "bsonType": "timestamp",
+      "description": "会员到期时间"
+    },
+    "vip_expire_time_text": {
+      "bsonType": "string",
+      "description": "会员到期时间展示文案"
+    },
+    "vip_level": {
+      "bsonType": "string",
+      "description": "会员等级，normal/vip",
+      "default": "normal"
+    },
+    "vip_source": {
+      "bsonType": "string",
+      "description": "会员来源：redeem_code/admin_gift/wechat_pay/manual",
+      "default": ""
+    },
+    "member_type": {
+      "bsonType": "string",
+      "description": "会员类型：free/personal/enterprise（与小程序展示一致）",
+      "enum": ["free", "personal", "enterprise"]
+    },
+    "contact_quota_used": {
+      "bsonType": "int",
+      "description": "本月联系采购方已用次数",
+      "default": 0
+    },
+    "gift_top_used": {
+      "bsonType": "int",
+      "description": "累计已抵扣的赠送置顶天数（与 promotion_order 赠送抵扣一致，按「天」累计）",
+      "default": 0
+    },
+    "gift_boost_used": {
+      "bsonType": "int",
+      "description": "累计已抵扣的赠送加急曝光天数（与 promotion_order 赠送抵扣一致，按「天」累计）",
+      "default": 0
+    },
+    "is_enterprise_verified": {
+      "bsonType": "bool",
+      "description": "是否通过企业认证",
+      "default": false
+    },
+    "enterprise_auth_status": {
+      "bsonType": "string",
+      "description": "企业认证状态：空字符串/pending/approved/rejected",
+      "enum": ["", "pending", "approved", "rejected"],
+      "default": ""
+    },
+    "enterprise_name": {
+      "bsonType": "string",
+      "description": "企业认证企业名称",
+      "default": ""
+    }
+  },
+  "indexes": {
+    "username_unique": {
+      "unique": true,
+      "fields": {
+        "username": 1
+      }
+    },
+    "mobile_unique": {
+      "unique": true,
+      "fields": {
+        "mobile": 1
+      }
+    },
+    "wx_openid_unique": {
+      "unique": true,
+      "fields": {
+        "wx_openid": 1
+      }
+    }
+  }
+}

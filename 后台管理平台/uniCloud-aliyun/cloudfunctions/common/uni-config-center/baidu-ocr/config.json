@@ -1,0 +1,7 @@
+{
+  "apiKey": "4JiGqnCmZhonLHMtzXCwV2R5",
+  "secretKey": "GeQ5mYEBWfPmsT7H5VkOlKelJmWCWgPD",
+  "tokenUrl": "https://aip.baidubce.com/oauth/2.0/token",
+  "idcardUrl": "https://aip.baidubce.com/rest/2.0/ocr/v1/idcard",
+  "businessLicenseUrl": "https://aip.baidubce.com/rest/2.0/ocr/v1/business_license"
+}

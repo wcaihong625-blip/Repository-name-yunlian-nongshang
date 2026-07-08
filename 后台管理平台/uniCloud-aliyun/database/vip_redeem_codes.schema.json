@@ -1,0 +1,88 @@
+{
+  "bsonType": "object",
+  "required": [
+    "code",
+    "type",
+    "value",
+    "status",
+    "created_at"
+  ],
+  "properties": {
+    "_id": {
+      "description": "ID，系统自动生成"
+    },
+    "code": {
+      "bsonType": "string",
+      "description": "优惠码，唯一",
+      "trim": "both"
+    },
+    "type": {
+      "bsonType": "string",
+      "description": "优惠码类型，第一版先固定 days",
+      "enum": [
+        "days"
+      ],
+      "default": "days"
+    },
+    "value": {
+      "bsonType": "int",
+      "description": "赠送会员天数，例如 7、30、90"
+    },
+    "status": {
+      "bsonType": "string",
+      "description": "状态：unused 未使用，used 已使用，expired 已过期，disabled 已作废",
+      "enum": [
+        "unused",
+        "used",
+        "expired",
+        "disabled"
+      ],
+      "default": "unused"
+    },
+    "expire_at": {
+      "bsonType": "timestamp",
+      "description": "过期时间，可为空"
+    },
+    "used_by": {
+      "bsonType": "string",
+      "description": "使用者用户ID",
+      "foreignKey": "uni-id-users._id"
+    },
+    "used_at": {
+      "bsonType": "timestamp",
+      "description": "使用时间"
+    },
+    "batch_name": {
+      "bsonType": "string",
+      "description": "批次名称，如 首批体验用户",
+      "trim": "both"
+    },
+    "remark": {
+      "bsonType": "string",
+      "description": "备注",
+      "trim": "both"
+    },
+    "created_at": {
+      "bsonType": "timestamp",
+      "description": "创建时间"
+    }
+  },
+  "indexes": {
+    "code_unique": {
+      "unique": true,
+      "fields": {
+        "code": 1
+      }
+    },
+    "status_idx": {
+      "fields": {
+        "status": 1
+      }
+    },
+    "expire_at_idx": {
+      "fields": {
+        "expire_at": 1
+      }
+    }
+  }
+}

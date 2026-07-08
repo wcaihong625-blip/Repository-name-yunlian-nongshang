@@ -1,0 +1,12 @@
+{
+  "name": "completeZeroAmountMemberOrder",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-member-coupon": "file:../common/nxt-member-coupon",
+    "nxt-member-order-apply-paid": "file:../common/nxt-member-order-apply-paid"
+  },
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

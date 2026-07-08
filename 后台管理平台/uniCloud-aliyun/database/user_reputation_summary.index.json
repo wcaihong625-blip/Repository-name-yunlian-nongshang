@@ -1,0 +1,9 @@
+[
+  {
+    "IndexName": "user_id_unique",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [{ "Name": "user_id", "Direction": "1" }],
+      "MgoIsUnique": true
+    }
+  }
+]

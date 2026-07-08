@@ -1,0 +1,7 @@
+{
+  "name": "nxt-reputation",
+  "version": "1.0.0",
+  "description": "NXT 用户信誉与举报汇总公共逻辑",
+  "main": "index.js",
+  "dependencies": {}
+}

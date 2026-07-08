@@ -1,0 +1,40 @@
+{
+  "bsonType": "object",
+  "required": ["user_id", "created_at"],
+  "permission": {
+    "read": "'admin' in auth.role",
+    "create": false,
+    "update": false,
+    "delete": false
+  },
+  "properties": {
+    "_id": { "description": "主键" },
+    "user_id": { "bsonType": "string", "title": "用户ID", "description": "对应 uni-id-users._id" },
+    "user_name": { "bsonType": "string", "title": "用户昵称" },
+    "reputation_score": { "bsonType": "int", "title": "综合信誉分", "defaultValue": 0 },
+    "positive_rate": { "bsonType": "int", "title": "好评率%", "defaultValue": 0 },
+    "review_count": { "bsonType": "int", "title": "评价条数", "defaultValue": 0 },
+    "report_count": { "bsonType": "int", "title": "被举报次数", "defaultValue": 0 },
+    "valid_report_count": { "bsonType": "int", "title": "属实举报次数", "defaultValue": 0 },
+    "publish_purchase_count": { "bsonType": "int", "title": "发布采购数", "defaultValue": 0 },
+    "publish_supply_count": { "bsonType": "int", "title": "发布供应数", "defaultValue": 0 },
+    "total_view_count": { "bsonType": "int", "title": "主页浏览量", "defaultValue": 0 },
+    "contact_count": { "bsonType": "int", "title": "被联系次数", "defaultValue": 0 },
+    "favorite_count": { "bsonType": "int", "title": "被收藏次数", "defaultValue": 0 },
+    "is_verified": { "bsonType": "bool", "title": "实名认证", "defaultValue": false },
+    "is_enterprise_verified": { "bsonType": "bool", "title": "企业认证", "defaultValue": false },
+    "risk_level": {
+      "bsonType": "string",
+      "title": "风险等级",
+      "enum": [
+        { "value": "normal", "text": "正常" },
+        { "value": "mild", "text": "轻度风险" },
+        { "value": "warning", "text": "已警告" }
+      ],
+      "defaultValue": "normal"
+    },
+    "last_calculated_at": { "bsonType": "timestamp", "title": "最近重算时间" },
+    "created_at": { "bsonType": "timestamp", "title": "创建时间", "forceDefaultValue": { "$env": "now" } },
+    "updated_at": { "bsonType": "timestamp", "title": "更新时间", "forceDefaultValue": { "$env": "now" } }
+  }
+}

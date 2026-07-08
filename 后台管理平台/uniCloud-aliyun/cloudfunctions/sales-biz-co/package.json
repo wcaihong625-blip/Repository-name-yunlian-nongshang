@@ -1,0 +1,9 @@
+{
+  "name": "sales-biz-co",
+  "version": "1.0.0",
+  "description": "业务员打卡及提成系统业务线",
+  "main": "index.obj.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth"
+  }
+}

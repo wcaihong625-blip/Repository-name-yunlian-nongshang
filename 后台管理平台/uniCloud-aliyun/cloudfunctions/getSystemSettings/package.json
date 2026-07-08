@@ -1,0 +1,12 @@
+{
+  "name": "getSystemSettings",
+  "version": "1.0.0",
+  "description": "获取系统配置云函数",
+  "main": "index.js",
+  "dependencies": {},
+  "cloudfunction-config": {
+    "memorySize": 256,
+    "runtime": "Nodejs18",
+    "timeout": 60
+  }
+}

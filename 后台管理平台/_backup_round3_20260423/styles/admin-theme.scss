@@ -1,0 +1,35 @@
+$admin-bg: #f3f6fb;
+$admin-card-bg: #ffffff;
+$admin-card-border: 1px solid #eaf0f6;
+$admin-card-radius: 12px;
+$admin-card-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+
+$admin-text-title: #0f172a;
+$admin-text-main: #334155;
+$admin-text-secondary: #64748b;
+$admin-text-muted: #94a3b8;
+
+$admin-primary: #3b82f6;
+$admin-success: #16a34a;
+$admin-warning: #d97706;
+$admin-danger: #dc2626;
+
+$admin-top-height: 64px;
+$admin-sidebar-width: 200px;
+$admin-sidebar-width-collapsed: 64px;
+$admin-sidebar-bg: #111827;
+$admin-sidebar-text: rgba(255, 255, 255, 0.74);
+$admin-sidebar-text-active: #f8fafc;
+$admin-sidebar-active-bg: rgba(96, 165, 250, 0.2);
+$admin-sidebar-hover-bg: rgba(148, 163, 184, 0.16);
+
+$admin-page-padding: 22px;
+$admin-section-gap: 18px;
+$admin-card-padding: 18px;
+
+@mixin admin-card {
+  background: $admin-card-bg;
+  border: $admin-card-border;
+  border-radius: $admin-card-radius;
+  box-shadow: $admin-card-shadow;
+}

@@ -1,0 +1,836 @@
+/* 行情页面样式 */
+:root {
+    --mt-green-main: #16A34A;
+    --mt-green-deep: #087A32;
+    --mt-green-soft-bg: #EAF8EF;
+    --mt-green-soft-border: #BFE8CB;
+    --mt-page-bg: #F6F8FA;
+    --mt-text-main: #111827;
+    --mt-text-sub: #6B7280;
+    --mt-divider: #EEF2F0;
+    /* 吸顶「产品名+时间」栏高度约 88rpx + 与下方卡片的固定间距 32rpx = 120rpx，三 tab 统一用这一套，避免 margin/padding 混用 */
+    --mt-sticky-product-to-card: 120rpx;
+    /* 行情卡片相对屏幕左右边距：略大于原 32rpx，与三列表格第三栏（价格列）留白观感一致 */
+    --mt-card-page-gutter: 40rpx;
+}
+
+.market-page {
+    min-height: 100vh;
+    background: var(--mt-page-bg);
+    padding-bottom: 40rpx;
+    /* padding-top 由页面内联样式根据顶栏+固定导航总高度计算 */
+}
+
+/* 与采购页一致的顶栏标题区（navigationStyle: custom） */
+.mt-title-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 101;
+    box-sizing: border-box;
+}
+
+.p-green-header {
+    background: #16a34a;
+    padding-bottom: 20rpx;
+}
+
+.p-nav-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-left: 0;
+    box-sizing: border-box;
+}
+
+.p-nav-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 44rpx;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1rpx;
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+/* 搜索栏 */
+.search-section {
+    background: transparent;
+    padding: 12rpx 28rpx 0;
+    box-sizing: border-box;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 9999rpx;
+    padding: 0 28rpx 0 26rpx;
+    height: 80rpx;
+    position: relative;
+    box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.06);
+}
+
+.search-icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 16rpx;
+    flex-shrink: 0;
+    opacity: 0.45;
+}
+
+.search-input {
+    flex: 1;
+    font-size: 28rpx;
+    color: #111827;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.clear-btn {
+    width: 40rpx;
+    height: 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40rpx;
+    color: #999999;
+    margin-left: 16rpx;
+}
+
+/* 主导航栏 */
+.main-nav-section {
+    display: flex;
+    background: #ffffff;
+    border-bottom: 1rpx solid #f0f0f0;
+    position: fixed;
+    /* top 由页面内联样式：顶栏 + 搜索栏高度 */
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 99;
+    box-sizing: border-box;
+}
+
+.main-nav-item {
+    flex: 1;
+    text-align: center;
+    padding: 28rpx 0;
+    font-size: 30rpx;
+    color: #333333;
+    position: relative;
+    transition: all 0.3s;
+    font-weight: 400;
+}
+
+.main-nav-item.active {
+    color: #16a34a;
+    font-weight: 500;
+}
+
+.main-nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48rpx;
+    height: 6rpx;
+    background: #16a34a;
+    border-radius: 3rpx;
+}
+
+/* 分类导航 */
+.category-nav-section {
+    display: flex;
+    background: #ffffff;
+    padding: 0;
+    border-bottom: 1rpx solid #f0f0f0;
+    justify-content: space-around;
+    position: fixed;
+    /* top 由页面内联样式 */
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 98;
+    box-sizing: border-box;
+}
+
+.category-nav-item {
+    flex: 1;
+    padding: 28rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8rpx;
+    font-size: 30rpx;
+    color: #333333;
+    background: #ffffff;
+    transition: all 0.3s;
+    gap: 8rpx;
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.category-nav-item.all-item {
+    font-weight: 400 !important;
+}
+
+.category-nav-item.all-item.active {
+    font-weight: 500 !important;
+}
+
+.category-nav-item.active {
+    color: #16a34a;
+    font-weight: 500;
+}
+
+.category-nav-item.expanded {
+    color: #16a34a;
+    font-weight: 500;
+}
+
+.arrow-icon {
+    font-size: 20rpx;
+    transition: transform 0.3s;
+    color: #16a34a;
+    margin-left: 8rpx;
+    line-height: 1;
+}
+
+.arrow-icon.expanded {
+    transform: rotate(180deg);
+}
+
+/* 二级分类菜单 */
+.sub-category-section {
+    background: #ffffff;
+    padding: 24rpx 32rpx;
+    border-bottom: 2rpx solid #f0f0f0;
+    position: fixed;
+    /* top 由页面内联样式：接在分类导航之后 */
+    left: 0;
+    right: 0;
+    z-index: 97;
+    box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.05);
+    /* 增加滚动机制 */
+    max-height: 60vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sub-category-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16rpx;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sub-category-item {
+    padding: 12rpx 12rpx;
+    border-radius: 12rpx;
+    font-size: 28rpx;
+    color: #333333;
+    background: #ffffff;
+    transition: all 0.3s;
+    border: 2rpx solid #e5e7eb;
+    white-space: nowrap;
+    text-align: center;
+    box-sizing: border-box;
+    font-weight: 400;
+}
+
+.sub-category-item.active {
+    background: #16a34a;
+    color: #ffffff;
+    border-color: #16a34a;
+    font-weight: 500;
+}
+
+/* 产品头部信息（左右边距 32+32 与下方 region-price-section 卡片内文对齐） */
+.product-header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12rpx;
+    padding: 28rpx 64rpx 20rpx;
+    background: #ffffff;
+    margin-top: 0;
+    box-sizing: border-box;
+}
+
+.wholesale-product-header {
+    padding: 28rpx 64rpx 20rpx;
+    border-bottom: 1rpx solid var(--mt-divider);
+}
+
+.origin-product-header {
+    border-bottom: 1rpx solid var(--mt-divider);
+}
+
+.product-header-fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 96;
+    background: #ffffff;
+}
+
+/* 行情分析：首张卡片上边距由页面根 --mt-card-block-margin-top（含二级菜单展开高度），无内联变量时回退 120rpx */
+.forecast-content-with-fixed-header {
+    margin-top: var(--mt-card-block-margin-top, var(--mt-sticky-product-to-card));
+    padding-top: 0;
+}
+
+.forecast-content-with-fixed-header .analysis-section {
+    margin-top: 0;
+    margin-left: var(--mt-card-page-gutter);
+    margin-right: var(--mt-card-page-gutter);
+    margin-bottom: 16rpx;
+}
+
+.forecast-content-with-fixed-header .analysis-section + .analysis-section {
+    margin-top: 16rpx;
+}
+
+.forecast-content-with-fixed-header .empty-state {
+    padding-left: var(--mt-card-page-gutter);
+    padding-right: var(--mt-card-page-gutter);
+}
+
+.forecast-content-with-fixed-header .market-load-more-hint {
+    padding-left: var(--mt-card-page-gutter);
+    padding-right: var(--mt-card-page-gutter);
+}
+
+.product-name.all-product-name {
+    font-weight: 700 !important;
+}
+
+.wholesale-product-header .product-info {
+    min-width: 0;
+}
+
+.wholesale-product-header .product-name {
+    margin-left: 5vw;
+    font-weight: 700 !important;
+}
+
+.origin-product-header .product-name {
+    margin-left: 5vw;
+    font-weight: 700 !important;
+}
+
+.product-header-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16rpx;
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
+    gap: 12rpx;
+    flex: 1;
+    min-width: 0;
+}
+
+.product-name {
+    font-size: 34rpx;
+    font-weight: 500;
+    color: var(--mt-text-main);
+}
+
+.product-tag {
+    padding: 6rpx 16rpx;
+    border-radius: 6rpx;
+    font-size: 20rpx;
+    background: var(--mt-green-soft-bg);
+    color: var(--mt-green-main);
+    border: 1rpx solid var(--mt-green-soft-border);
+}
+
+.wholesale-tag {
+    background: var(--mt-green-soft-bg);
+    color: var(--mt-green-main);
+    border-color: var(--mt-green-soft-border);
+}
+
+.update-time-text {
+    font-size: 24rpx;
+    color: var(--mt-text-sub);
+    flex-shrink: 0;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.product-variety-text {
+    font-size: 24rpx;
+    color: #666666;
+    line-height: 1.4;
+}
+
+/* 价格走势图卡片 */
+.chart-card {
+    margin: 0 32rpx 16rpx;
+    background: #ffffff;
+    border-radius: 16rpx;
+    padding: 24rpx;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 价格信息区域 */
+.price-info-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20rpx;
+}
+
+.price-info-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8rpx;
+}
+
+.price-label-top {
+    font-size: 26rpx;
+    color: #666666;
+    line-height: 1;
+}
+
+.price-info-right {
+    display: flex;
+    align-items: center;
+    gap: 16rpx;
+    position: relative;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.price-value-large {
+    font-size: 72rpx;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1;
+}
+
+.price-trend-box {
+    display: flex;
+    align-items: center;
+    gap: 4rpx;
+    padding: 6rpx 12rpx;
+    border-radius: 6rpx;
+    font-size: 24rpx;
+    line-height: 1;
+}
+
+.price-trend-box.up {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.price-trend-box.down {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.price-trend-box.stable {
+    background: #f3f4f6;
+    color: #999999;
+}
+
+.trend-icon {
+    font-size: 20rpx;
+    font-weight: 600;
+}
+
+.trend-text {
+    font-weight: 500;
+    font-size: 24rpx;
+}
+
+.chart-icon-small {
+    font-size: 28rpx;
+    line-height: 1;
+    position: absolute;
+    top: -4rpx;
+    right: -36rpx;
+}
+
+/* 图表区域 */
+.chart-section-inner {
+    position: relative;
+}
+
+.chart-wrapper {
+    width: 100%;
+    height: 380rpx;
+    position: relative;
+    background: transparent;
+}
+
+.chart-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.chart-title-bottom {
+    font-size: 26rpx;
+    color: #666666;
+    text-align: center;
+    margin-top: 16rpx;
+    padding-top: 12rpx;
+}
+
+/* 价格走势图（保留兼容） */
+.chart-section {
+    padding: 16rpx 32rpx 20rpx;
+    background: #ffffff;
+}
+
+.section-title {
+    font-size: 32rpx;
+    font-weight: 600;
+    color: var(--mt-text-main);
+    margin-bottom: 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12rpx;
+}
+
+.section-title-left {
+    display: flex;
+    align-items: center;
+    gap: 12rpx;
+}
+
+.wholesale-table-header .price-col,
+.wholesale-row .price-col {
+    text-align: right !important;
+}
+
+.update-time-small {
+    font-size: 24rpx;
+    color: var(--mt-text-sub);
+    font-weight: 400;
+    white-space: nowrap;
+}
+
+.location-icon {
+    font-size: 32rpx;
+    line-height: 1;
+}
+
+.chart-container {
+    margin-top: 0;
+}
+
+/* 各地农产品价格 */
+.region-price-section {
+    margin: 16rpx var(--mt-card-page-gutter);
+    padding: 28rpx;
+    background: #ffffff;
+    border-radius: 24rpx;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+.wholesale-card {
+    border: 1rpx solid var(--mt-divider);
+    background: #ffffff;
+}
+
+/* 产地/批发：顶距与行情分析一致，由根节点 --mt-card-block-margin-top 动态叠加二级栏高度 */
+.with-fixed-product-header {
+    margin-top: var(--mt-card-block-margin-top, var(--mt-sticky-product-to-card));
+    margin-left: var(--mt-card-page-gutter);
+    margin-right: var(--mt-card-page-gutter);
+    margin-bottom: 16rpx;
+    padding: 28rpx;
+}
+
+.wholesale-section-title {
+    margin-bottom: 24rpx;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.origin-section-title {
+    margin-bottom: 24rpx;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.dot-icon {
+    width: 12rpx;
+    height: 12rpx;
+    border-radius: 50%;
+    background: var(--mt-green-main);
+    display: inline-block;
+}
+
+.region-price-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16rpx;
+    margin-top: 20rpx;
+}
+
+.region-price-section .region-price-list {
+    gap: 0;
+    margin-top: 16rpx;
+    border: 1rpx solid #dfe7e3;
+    border-radius: 14rpx;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.market-table-header {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 18rpx;
+    border-bottom: 1rpx solid var(--mt-divider);
+    color: var(--mt-text-sub);
+    font-size: 24rpx;
+    font-weight: 500;
+    border-radius: 12rpx;
+}
+
+.wholesale-table-header {
+    background: var(--mt-green-soft-bg);
+    border: 1rpx solid var(--mt-green-soft-border);
+    border-bottom: 1rpx solid #dfe7e3;
+    border-radius: 0;
+}
+
+.origin-table-header {
+    background: var(--mt-green-soft-bg);
+    border: 1rpx solid var(--mt-green-soft-border);
+    border-bottom: 1rpx solid #dfe7e3;
+    border-radius: 0;
+}
+
+.origin-table-header .col-left,
+.origin-table-header .col-mid,
+.origin-table-header .col-right {
+    font-size: 30rpx;
+    font-weight: 700;
+    color: #f6c605;
+}
+
+.wholesale-table-header .market-col,
+.wholesale-table-header .spec-col,
+.wholesale-table-header .price-col {
+    font-size: 30rpx;
+    font-weight: 700;
+    color: #f6c605;
+}
+
+.region-price-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26rpx 8rpx;
+    transition: all 0.3s;
+    border-bottom: 1rpx solid var(--mt-divider);
+}
+
+.region-price-section .region-price-item {
+    border-bottom: 1rpx solid #dfe7e3;
+}
+
+.wholesale-card .region-price-item {
+    border-bottom: 1rpx solid #dfe7e3;
+    background: #ffffff;
+}
+
+.region-price-item:last-child {
+    border-bottom: none;
+}
+
+.region-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14rpx;
+    flex: 1;
+}
+
+.col-left {
+    flex: 1.45;
+    text-align: left;
+}
+
+.col-mid {
+    width: 126rpx;
+    flex: 0 0 126rpx;
+    text-align: left;
+    padding-left: 8rpx;
+}
+
+.col-right {
+    width: 228rpx;
+    flex: 0 0 228rpx;
+    text-align: right;
+}
+
+.market-col {
+    white-space: normal;
+    word-break: break-all;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.spec-col {
+    color: var(--mt-text-sub);
+}
+
+.price-col {
+    white-space: nowrap;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.region-info-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8rpx;
+    flex: 1;
+}
+
+.region-name {
+    font-size: 28rpx;
+    font-weight: 400;
+    color: var(--mt-text-main);
+    min-width: 0;
+}
+
+.region-date {
+    font-size: 24rpx;
+    color: #999999;
+    white-space: nowrap;
+}
+
+.region-price-value {
+    font-size: 28rpx;
+    font-weight: 700;
+    color: #087A32 !important;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.price,
+.market-price,
+.wholesale-price {
+    color: #087A32 !important;
+    font-weight: 700 !important;
+}
+
+.region-change {
+    display: flex;
+    align-items: center;
+    gap: 4rpx;
+    font-size: 24rpx;
+    font-weight: 400;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.region-change.up {
+    color: #ef4444;
+}
+
+.region-change.down {
+    color: #16a34a;
+}
+
+.region-change.stable {
+    color: #999999;
+}
+
+.change-icon {
+    font-size: 18rpx;
+    line-height: 1;
+    font-weight: 500;
+}
+
+.change-value {
+    font-size: 24rpx;
+    font-weight: 400;
+}
+
+.view-more {
+    margin-top: 20rpx;
+    text-align: center;
+    color: #16a34a;
+    font-size: 28rpx;
+    padding: 16rpx 0;
+    cursor: pointer;
+}
+
+/* 空状态 */
+.empty-state {
+    text-align: center;
+    padding: 120rpx 0;
+    color: #999999;
+    font-size: 28rpx;
+}
+
+/* 格式化价格 */
+.format-price {
+    font-weight: 600;
+}
+
+/* 格式化涨跌 */
+.format-change {
+    font-weight: 500;
+}
+
+/* 行情分析解读区域 */
+.analysis-section {
+    margin: 16rpx var(--mt-card-page-gutter);
+    padding: 32rpx;
+    background: #ffffff;
+    border-radius: 16rpx;
+    box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.product-name-title {
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.analysis-content {
+    margin-top: 16rpx;
+    font-size: 30rpx;
+    color: #374151;
+    line-height: 1.9;
+    letter-spacing: 0.6rpx;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    word-break: break-word;
+    white-space: pre-wrap;
+    /* 保留换行 */
+}
+
+.market-load-more-hint {
+    text-align: center;
+    padding: 24rpx 32rpx 32rpx;
+    font-size: 26rpx;
+    color: #6b7280;
+}

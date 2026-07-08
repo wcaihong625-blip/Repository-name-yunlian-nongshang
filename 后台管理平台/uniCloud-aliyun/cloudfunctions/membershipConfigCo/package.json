@@ -1,0 +1,15 @@
+{
+  "name": "membershipConfigCo",
+  "version": "1.0.0",
+  "description": "会员与推广配置（合并原 get/save MembershipPromotionConfig）",
+  "main": "index.obj.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-membership-promotion-config": "file:../common/nxt-membership-promotion-config"
+  },
+  "cloudfunction-config": {
+    "memorySize": 256,
+    "runtime": "Nodejs18",
+    "timeout": 60
+  }
+}

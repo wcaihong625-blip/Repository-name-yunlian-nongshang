@@ -1,0 +1,8 @@
+{
+  "name": "getSupplyDetail",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-view-count": "file:../common/nxt-view-count"
+  }
+}

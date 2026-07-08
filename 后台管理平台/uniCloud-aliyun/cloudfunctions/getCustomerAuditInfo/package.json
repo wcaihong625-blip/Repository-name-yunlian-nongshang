@@ -1,0 +1,10 @@
+{
+  "name": "getCustomerAuditInfo",
+  "version": "1.0.0",
+  "description": "客户核对信息聚合查询（只读）",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-sales-staff": "file:../common/nxt-sales-staff"
+  }
+}

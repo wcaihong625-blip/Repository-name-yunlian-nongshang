@@ -1,0 +1,81 @@
+{
+  "bsonType": "object",
+  "required": ["sales_id", "channel_code", "channel_name", "status"],
+  "permission": {
+    "read": "'admin' in auth.role",
+    "create": "'admin' in auth.role",
+    "update": "'admin' in auth.role",
+    "delete": "'admin' in auth.role"
+  },
+  "properties": {
+    "_id": {
+      "bsonType": "string",
+      "description": "ID"
+    },
+    "sales_id": {
+      "bsonType": "string",
+      "title": "业务员ID"
+    },
+    "sales_name": {
+      "bsonType": "string",
+      "title": "业务员姓名"
+    },
+    "channel_code": {
+      "bsonType": "string",
+      "title": "渠道编号",
+      "description": "唯一的内部渠道编号"
+    },
+    "channel_name": {
+      "bsonType": "string",
+      "title": "渠道名称"
+    },
+    "channel_type": {
+      "bsonType": "int",
+      "title": "渠道类型",
+      "description": "1-微信群 2-地推 3-个人",
+      "defaultValue": 1,
+      "enum": [
+        {"value": 1, "text": "微信群"},
+        {"value": 2, "text": "地推"},
+        {"value": 3, "text": "个人"}
+      ]
+    },
+    "group_name": {
+      "bsonType": "string",
+      "title": "所属微信群名"
+    },
+    "invite_code": {
+      "bsonType": "string",
+      "title": "邀请码"
+    },
+    "landing_path": {
+      "bsonType": "string",
+      "title": "专属落地页路径",
+      "description": "小程序专属进入链接"
+    },
+    "status": {
+      "bsonType": "int",
+      "title": "状态",
+      "description": "0-停用 1-正常",
+      "defaultValue": 1,
+      "enum": [
+        {"value": 0, "text": "停用"},
+        {"value": 1, "text": "正常"}
+      ]
+    },
+    "remark": {
+      "bsonType": "string",
+      "title": "备注"
+    },
+    "created_at": {
+      "bsonType": "timestamp",
+      "title": "创建时间",
+      "forceDefaultValue": {"$env": "now"}
+    },
+    "updated_at": {
+      "bsonType": "timestamp",
+      "title": "更新时间",
+      "forceDefaultValue": {"$env": "now"}
+    }
+  }
+}

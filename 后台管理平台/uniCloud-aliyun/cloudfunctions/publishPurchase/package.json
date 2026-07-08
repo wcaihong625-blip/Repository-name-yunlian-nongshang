@@ -1,0 +1,9 @@
+{
+  "name": "publishPurchase",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth",
+    "nxt-search-index": "file:../common/nxt-search-index"
+  }
+}

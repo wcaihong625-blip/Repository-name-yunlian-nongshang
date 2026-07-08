@@ -1,0 +1,7 @@
+{
+  "name": "cloudfunctions-common",
+  "private": true,
+  "version": "1.0.0",
+  "description": "云函数公共模块依赖（供 common/authHelper 等使用）",
+  "dependencies": {}
+}

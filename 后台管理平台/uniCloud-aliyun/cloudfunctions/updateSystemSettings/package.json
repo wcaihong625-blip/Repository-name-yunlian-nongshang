@@ -1,0 +1,14 @@
+{
+  "name": "updateSystemSettings",
+  "version": "1.0.0",
+  "description": "更新系统配置云函数（供后台管理面板使用）",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth"
+  },
+  "cloudfunction-config": {
+    "memorySize": 256,
+    "runtime": "Nodejs18",
+    "timeout": 60
+  }
+}

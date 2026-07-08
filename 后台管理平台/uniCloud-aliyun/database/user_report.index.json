@@ -1,0 +1,29 @@
+[
+  {
+    "IndexName": "reported_user_id_created",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [
+        { "Name": "reported_user_id", "Direction": "1" },
+        { "Name": "created_at", "Direction": "-1" }
+      ],
+      "MgoIsUnique": false
+    }
+  },
+  {
+    "IndexName": "status_created",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [
+        { "Name": "status", "Direction": "1" },
+        { "Name": "created_at", "Direction": "-1" }
+      ],
+      "MgoIsUnique": false
+    }
+  },
+  {
+    "IndexName": "report_reason_code",
+    "MgoKeySchema": {
+      "MgoIndexKeys": [{ "Name": "report_reason_code", "Direction": "1" }],
+      "MgoIsUnique": false
+    }
+  }
+]

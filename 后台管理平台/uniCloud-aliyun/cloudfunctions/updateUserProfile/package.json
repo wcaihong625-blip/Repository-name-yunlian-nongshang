@@ -1,0 +1,9 @@
+{
+  "name": "updateUserProfile",
+  "version": "1.0.0",
+  "description": "更新用户个人信息",
+  "main": "index.js",
+  "dependencies": {
+    "nxt-auth": "file:../common/nxt-auth"
+  }
+}
